@@ -2,8 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html",
       "/posts/2023-04-19-text2sql-resdsql.html",
       "/posts/2023-02-23-spider-dataset.html",
       "/posts/2023-02-19-deepseed.html",
