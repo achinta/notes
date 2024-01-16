@@ -3,7 +3,28 @@
     "listing": "/index.html",
     "items": [
       "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/welcome/index.html",
+      "/posts/2023-04-19-text2sql-resdsql.html",
+      "/posts/2023-02-23-spider-dataset.html",
+      "/posts/2023-02-19-deepseed.html",
+      "/posts/2023-02-15-codex.html",
+      "/posts/2023-01-30-finetune-nlp-pytorch.html",
+      "/posts/2023-01-23-huggingface-course.html",
+      "/posts/2022-11-01-text-from-invoices.html",
+      "/posts/2022-10-25-transformers-from-scratch.html",
+      "/posts/2022-08-18-pytorch-datapipes.html",
+      "/posts/2022-06-29-linear-algebra-notes.html",
+      "/posts/2022-06-26-quantile-plot.html",
+      "/posts/2022-05-13-timeseries-1.html",
+      "/posts/2022-03-07-product-recomendation.html",
+      "/posts/2022-01-16-movie-recommender-pytorch.html",
+      "/posts/2022-01-10-sklearn-2.html",
+      "/posts/2022-01-06-linear-regression.html",
+      "/posts/2021-12-28-variational-inference.html",
+      "/posts/2021-12-23-la-column-spaces.html",
+      "/posts/2021-11-28-sklearn-intro.html",
+      "/posts/2021-11-22-01-the-machine-learning-landscape.html",
+      "/posts/2021-11-11-linear-algebra-svd.html"
     ]
   }
 ]
