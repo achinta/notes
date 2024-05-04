@@ -3,6 +3,9 @@
     "listing": "/index.html",
     "items": [
       "/posts/2024-02-12-qdrant-cloud-run.html",
+      "/posts/20240224-quantization.html",
+      "/posts/2024-02-24-lamdba-labs.html",
+      "/posts/2024-05-04-trilium-glcoud.html",
       "/posts/2024-01-16-hybrid-search-2.html",
       "/posts/2023-04-19-text2sql-resdsql.html",
       "/posts/2023-02-23-spider-dataset.html",

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -72,7 +79,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
@@ -94,16 +102,43 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">notes</span>
     </a>
@@ -115,23 +150,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -144,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       
     
@@ -157,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(23)</span></div><div class="category" data-category="fastpages">fastpages <span class="quarto-category-count">(2)</span></div><div class="category" data-category="jupyter">jupyter <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(26)</span></div><div class="category" data-category="fastpages">fastpages <span class="quarto-category-count">(2)</span></div><div class="category" data-category="jupyter">jupyter <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -165,241 +200,316 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>:::{#quarto-listing-pipeline .hidden} <span class="hidden" data-render-id="quarto-enable-math-inline"><span class="math inline">\(e = mC^2\)</span></span></p>
-<p>:::{.hidden render-id=“pipeline-listing-listing”}</p>
-:::{.list .quarto-listing-default}
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1707721847497" data-listing-reading-time-sort="1">
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1714819238138" data-listing-reading-time-sort="1" data-listing-word-count-sort="105">
 <div class="thumbnail">
-<p><a href="./posts/2024-02-12-qdrant-cloud-run.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external"></a></p><a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2024-02-12-qdrant-cloud-run.html">
 <h3 class="no-anchor listing-title">
-Run Qdrant in Google Cloud Run
+<a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external">Run Qdrant in Google Cloud Run</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-I want to minimize the cost involved in running…
+<a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external">I want to minimize the cost involved in running a qdrant vector database, while keeping it scalable. But how do we persist the data across instances? Google Cloud Run gen2…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2024-02-12-qdrant-cloud-run.html"> </a>
+<p><a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external"></a></p><a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external">
+</a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1705343400000" data-listing-file-modified-sort="1705376995797" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1708767256203" data-listing-reading-time-sort="1" data-listing-word-count-sort="25">
 <div class="thumbnail">
-<p><a href="./posts/2024-01-16-hybrid-search-2.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/20240224-quantization.html" class="no-external"></a></p><a href="./posts/20240224-quantization.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/20240224-quantization.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2024-01-16-hybrid-search-2.html">
 <h3 class="no-anchor listing-title">
-Hybrid Search
+<a href="./posts/20240224-quantization.html" class="no-external">Quantization of LLMs</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/20240224-quantization.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-How to enable a scalable Hybrid Search…
+<a href="./posts/20240224-quantization.html" class="no-external">To gain an understanding of the LLM quantization to reduce model size and computation time.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2024-01-16-hybrid-search-2.html">
+<p><a href="./posts/20240224-quantization.html" class="no-external"></a></p><a href="./posts/20240224-quantization.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1709047569291" data-listing-reading-time-sort="1" data-listing-word-count-sort="84">
+<div class="thumbnail">
+<p><a href="./posts/2024-02-24-lamdba-labs.html" class="no-external"></a></p><a href="./posts/2024-02-24-lamdba-labs.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2024-02-24-lamdba-labs.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2024-02-24-lamdba-labs.html" class="no-external">Lambda Labs setup</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2024-02-24-lamdba-labs.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2024-02-24-lamdba-labs.html" class="no-external">If we use Lambda Labs for GPU instances, we can use persistant storage to store our data. These are the initial steps to set up the storage so that the use of persistant…</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2024-02-24-lamdba-labs.html" class="no-external"></a></p><a href="./posts/2024-02-24-lamdba-labs.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1714820800136" data-listing-reading-time-sort="1" data-listing-word-count-sort="187">
+<div class="thumbnail">
+<p><a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external"></a></p><a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external">Run Trilium server in google cloud run</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external">Trilium can be used as a personal knowledge base. It can be run locally or synchronized across multiple devices as a server. By using google cloud run as the server, we can…</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external"></a></p><a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1705343400000" data-listing-file-modified-sort="1705376995797" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="190">
+<div class="thumbnail">
+<p><a href="./posts/2024-01-16-hybrid-search-2.html" class="no-external"></a></p><a href="./posts/2024-01-16-hybrid-search-2.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2024-01-16-hybrid-search-2.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2024-01-16-hybrid-search-2.html" class="no-external">Hybrid Search</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2024-01-16-hybrid-search-2.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2024-01-16-hybrid-search-2.html" class="no-external">How to enable a scalable Hybrid Search with low cost by hosting it on AWS Lambda functions? It means that we do not want to use additional EC2 instances or containers for -…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2024-01-16-hybrid-search-2.html" class="no-external">
 <div class="listing-date">
 Jan 16, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1681842600000" data-listing-file-modified-sort="1705374863552" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1681842600000" data-listing-file-modified-sort="1705374863552" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="413">
 <div class="thumbnail">
-<p><a href="./posts/2023-04-19-text2sql-resdsql.html"> <p class="card-img-top"><img src="https://github.com/RUCKBReasoning/RESDSQL/blob/main/resdsql.png?raw=true"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external"></a></p><a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-04-19-text2sql-resdsql.html">
 <h3 class="no-anchor listing-title">
-Purpose
+<a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external">Purpose</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-We will attempt to understand the ResdSQL paper and its implementation in github
+<a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external">We will attempt to understand the ResdSQL paper and its implementation in github</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-04-19-text2sql-resdsql.html">
+<a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external">
 <div class="listing-date">
 Apr 19, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1677090600000" data-listing-file-modified-sort="1705374863479" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1677090600000" data-listing-file-modified-sort="1705374863479" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="11">
 <div class="thumbnail">
-<p><a href="./posts/2023-02-23-spider-dataset.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2023-02-23-spider-dataset.html" class="no-external"></a></p><a href="./posts/2023-02-23-spider-dataset.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2023-02-23-spider-dataset.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-02-23-spider-dataset.html">
 <h3 class="no-anchor listing-title">
+<a href="./posts/2023-02-23-spider-dataset.html" class="no-external"></a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-02-23-spider-dataset.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-We will covert the spider dataset to a networkx graph.
+<a href="./posts/2023-02-23-spider-dataset.html" class="no-external">We will covert the spider dataset to a networkx graph.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-02-23-spider-dataset.html">
+<a href="./posts/2023-02-23-spider-dataset.html" class="no-external">
 <div class="listing-date">
 Feb 23, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1676745000000" data-listing-file-modified-sort="1705374863546" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1676745000000" data-listing-file-modified-sort="1705374863546" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="769">
 <div class="thumbnail">
-<p><a href="./posts/2023-02-19-deepseed.html"> <p class="card-img-top"><img src="images/zero_memory.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/2023-02-19-deepseed.html" class="no-external"></a></p><a href="./posts/2023-02-19-deepseed.html" class="no-external">
+<p class="card-img-top"><img src="images/zero_memory.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/2023-02-19-deepseed.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-02-19-deepseed.html">
 <h3 class="no-anchor listing-title">
+<a href="./posts/2023-02-19-deepseed.html" class="no-external"></a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-02-19-deepseed.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-This is notes from the ZeRO - Memory Optimization paper
+<a href="./posts/2023-02-19-deepseed.html" class="no-external">This is notes from the ZeRO - Memory Optimization paper</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-02-19-deepseed.html">
+<a href="./posts/2023-02-19-deepseed.html" class="no-external">
 <div class="listing-date">
 Feb 19, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1676399400000" data-listing-file-modified-sort="1705374863531" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13">
+<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1676399400000" data-listing-file-modified-sort="1705374863531" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2440">
 <div class="thumbnail">
-<p><a href="./posts/2023-02-15-codex.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2023-02-15-codex.html" class="no-external"></a></p><a href="./posts/2023-02-15-codex.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2023-02-15-codex.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-02-15-codex.html">
 <h3 class="no-anchor listing-title">
-Results
+<a href="./posts/2023-02-15-codex.html" class="no-external">Results</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-02-15-codex.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-Here I am exploring the capabiliteis of Text to SQL of OpenAI codex vs fine-tuned t5-3b model (picard).
+<a href="./posts/2023-02-15-codex.html" class="no-external">Here I am exploring the capabiliteis of Text to SQL of OpenAI codex vs fine-tuned t5-3b model (picard).</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-02-15-codex.html">
+<a href="./posts/2023-02-15-codex.html" class="no-external">
 <div class="listing-date">
 Feb 15, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1675017000000" data-listing-file-modified-sort="1705374863545" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1675017000000" data-listing-file-modified-sort="1705374863545" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
 <div class="thumbnail">
-<p><a href="./posts/2023-01-30-finetune-nlp-pytorch.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external"></a></p><a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-01-30-finetune-nlp-pytorch.html">
 <h3 class="no-anchor listing-title">
-5 The datasets library
+<a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external">5 The datasets library</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-Repeating steps from https://huggingface.co/course/chapter3/4?fw=pt
+<a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external">Repeating steps from https://huggingface.co/course/chapter3/4?fw=pt</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-01-30-finetune-nlp-pytorch.html">
+<a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external">
 <div class="listing-date">
 Jan 30, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1674412200000" data-listing-file-modified-sort="1705374825527" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1674412200000" data-listing-file-modified-sort="1705374825527" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
 <div class="thumbnail">
-<p><a href="./posts/2023-01-23-huggingface-course.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2023-01-23-huggingface-course.html" class="no-external"></a></p><a href="./posts/2023-01-23-huggingface-course.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2023-01-23-huggingface-course.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-01-23-huggingface-course.html">
 <h3 class="no-anchor listing-title">
-<ol type="1">
-<li>Transformer Models
-</li></ol></h3>
+<a href="./posts/2023-01-23-huggingface-course.html" class="no-external">1. Transformer Models</a>
+</h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-01-23-huggingface-course.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-In encoder models, attention layers can access all words in the input sequence. Pretraining involves corruping an input…
+<a href="./posts/2023-01-23-huggingface-course.html" class="no-external">In encoder models, attention layers can access all words in the input sequence. Pretraining involves corruping an input sequence and predicting the original sequence (say…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-01-23-huggingface-course.html">
+<a href="./posts/2023-01-23-huggingface-course.html" class="no-external">
 <div class="listing-date">
 Jan 23, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1667241000000" data-listing-file-modified-sort="1705374863551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="11" data-listing-date-sort="1667241000000" data-listing-file-modified-sort="1705374863551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="thumbnail">
-<p><a href="./posts/2022-11-01-text-from-invoices.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-11-01-text-from-invoices.html" class="no-external"></a></p><a href="./posts/2022-11-01-text-from-invoices.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-11-01-text-from-invoices.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-11-01-text-from-invoices.html">
 <h3 class="no-anchor listing-title">
+<a href="./posts/2022-11-01-text-from-invoices.html" class="no-external"></a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-11-01-text-from-invoices.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-
+<a href="./posts/2022-11-01-text-from-invoices.html" class="no-external">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im">from</span> transformers <span class="im">import</span> AutoModelForTokenClassification, AutoProcessor</span>
+<span id="cb1-2"><span class="im">from</span> datasets <span class="im">import</span> ClassLabel, Features, Sequence, Value, Array2D, Array3D, load_metric</span>
+<span id="cb1-3"><span class="im">import</span> torch</span>…<span id="cb1-4"><span class="im"></span><span class="im"></span></span><span id="cb1-5"><span class="im"></span><span class="im"></span></span><span id="cb1-6"><span class="im"></span><span class="im"></span></span></code></pre></div></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-11-01-text-from-invoices.html">
+<a href="./posts/2022-11-01-text-from-invoices.html" class="no-external">
 <div class="listing-date">
 Nov 1, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="fastpages,jupyter" data-listing-date-sort="1666636200000" data-listing-file-modified-sort="1705375058851" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="12" data-categories="fastpages,jupyter" data-listing-date-sort="1666636200000" data-listing-file-modified-sort="1705375058851" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="371">
 <div class="thumbnail">
-<p><a href="./posts/2022-10-25-transformers-from-scratch.html"> <p class="card-img-top"><img src="http://jalammar.github.io/images/t/transformer_self_attention_vectors.png" alt="image"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external"></a></p><a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-10-25-transformers-from-scratch.html">
 <h3 class="no-anchor listing-title">
-Transformers from scratch in pytorch
+<a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external">Transformers from scratch in pytorch</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('fastpages'); return false;">
 fastpages
@@ -408,282 +518,281 @@ fastpages
 jupyter
 </div>
 </div>
-<a href="./posts/2022-10-25-transformers-from-scratch.html">
 <div class="listing-description">
-<p>Notes from https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial6/Transformers_and_MHAttention.html</p>
+<a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external">Notes from https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial6/Transformers_and_MHAttention.html</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-10-25-transformers-from-scratch.html">
+<a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external">
 <div class="listing-date">
 Oct 25, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1660761000000" data-listing-file-modified-sort="1705374825554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="13" data-listing-date-sort="1660761000000" data-listing-file-modified-sort="1705374825554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="thumbnail">
-<p><a href="./posts/2022-08-18-pytorch-datapipes.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-08-18-pytorch-datapipes.html" class="no-external"></a></p><a href="./posts/2022-08-18-pytorch-datapipes.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-08-18-pytorch-datapipes.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-08-18-pytorch-datapipes.html">
 <h3 class="no-anchor listing-title">
-Pytorch Datapipes
+<a href="./posts/2022-08-18-pytorch-datapipes.html" class="no-external">Pytorch Datapipes</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-08-18-pytorch-datapipes.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Understanding by doing</p>
+<a href="./posts/2022-08-18-pytorch-datapipes.html" class="no-external">Understanding by doing</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-08-18-pytorch-datapipes.html">
+<a href="./posts/2022-08-18-pytorch-datapipes.html" class="no-external">
 <div class="listing-date">
 Aug 18, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-listing-date-sort="1656441000000" data-listing-file-modified-sort="1705374863527" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="14" data-listing-date-sort="1656441000000" data-listing-file-modified-sort="1705374863527" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27">
 <div class="thumbnail">
-<p><a href="./posts/2022-06-29-linear-algebra-notes.html"> <p class="card-img-top"><img src="posts/2022-06-29-linear-algebra-notes_files/figure-html/cell-6-output-3.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external"></a></p><a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external">
+<p class="card-img-top"><img src="posts/2022-06-29-linear-algebra-notes_files/figure-html/cell-6-output-2.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-06-29-linear-algebra-notes.html">
 <h3 class="no-anchor listing-title">
-Properties of Eigen Values and Vectors
+<a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external">Properties of Eigen Values and Vectors</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-We initialize a random vector x, usually 1s. We multiply ax and divide the output to make the
+<a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external">We initialize a random vector x, usually 1s. We multiply ax and divide the output to make the</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-06-29-linear-algebra-notes.html">
+<a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external">
 <div class="listing-date">
 Jun 29, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-listing-date-sort="1656181800000" data-listing-file-modified-sort="1705374863513" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="15" data-listing-date-sort="1656181800000" data-listing-file-modified-sort="1705374863513" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94">
 <div class="thumbnail">
-<p><a href="./posts/2022-06-26-quantile-plot.html"> <p class="card-img-top"><img src="posts/2022-06-26-quantile-plot_files/figure-html/cell-6-output-3.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/2022-06-26-quantile-plot.html" class="no-external"></a></p><a href="./posts/2022-06-26-quantile-plot.html" class="no-external">
+<p class="card-img-top"><img src="posts/2022-06-26-quantile-plot_files/figure-html/cell-6-output-3.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/2022-06-26-quantile-plot.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-06-26-quantile-plot.html">
 <h3 class="no-anchor listing-title">
+<a href="./posts/2022-06-26-quantile-plot.html" class="no-external"></a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-06-26-quantile-plot.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-We will try to understand a quantile plot.
+<a href="./posts/2022-06-26-quantile-plot.html" class="no-external">We will try to understand a quantile plot.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-06-26-quantile-plot.html">
+<a href="./posts/2022-06-26-quantile-plot.html" class="no-external">
 <div class="listing-date">
 Jun 26, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-listing-date-sort="1652380200000" data-listing-file-modified-sort="1705374863550" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="16" data-listing-date-sort="1652380200000" data-listing-file-modified-sort="1705374863550" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5">
 <div class="thumbnail">
-<p><a href="./posts/2022-05-13-timeseries-1.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-05-13-timeseries-1.html" class="no-external"></a></p><a href="./posts/2022-05-13-timeseries-1.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-05-13-timeseries-1.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-05-13-timeseries-1.html">
 <h3 class="no-anchor listing-title">
-Passenger dataset
+<a href="./posts/2022-05-13-timeseries-1.html" class="no-external">Passenger dataset</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-05-13-timeseries-1.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-can be downloaded from https://www.kaggle.com/datasets/chirag19/air-passengers
+<a href="./posts/2022-05-13-timeseries-1.html" class="no-external">can be downloaded from https://www.kaggle.com/datasets/chirag19/air-passengers</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-05-13-timeseries-1.html">
+<a href="./posts/2022-05-13-timeseries-1.html" class="no-external">
 <div class="listing-date">
 May 13, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-listing-date-sort="1646591400000" data-listing-file-modified-sort="1705374825551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="17" data-listing-date-sort="1646591400000" data-listing-file-modified-sort="1705374825551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="310">
 <div class="thumbnail">
-<p><a href="./posts/2022-03-07-product-recomendation.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-03-07-product-recomendation.html" class="no-external"></a></p><a href="./posts/2022-03-07-product-recomendation.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-03-07-product-recomendation.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-03-07-product-recomendation.html">
 <h3 class="no-anchor listing-title">
-Satender Product Recommendation
+<a href="./posts/2022-03-07-product-recomendation.html" class="no-external">Satender Product Recommendation</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-03-07-product-recomendation.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>From SVD to Deep Learning</p>
+<a href="./posts/2022-03-07-product-recomendation.html" class="no-external">From SVD to Deep Learning</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-03-07-product-recomendation.html">
+<a href="./posts/2022-03-07-product-recomendation.html" class="no-external">
 <div class="listing-date">
 Mar 7, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-listing-date-sort="1642271400000" data-listing-file-modified-sort="1705374863554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="18" data-listing-date-sort="1642271400000" data-listing-file-modified-sort="1705374863554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="thumbnail">
-<p><a href="./posts/2022-01-16-movie-recommender-pytorch.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external"></a></p><a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-01-16-movie-recommender-pytorch.html">
 <h3 class="no-anchor listing-title">
-Movie Recommender using pytorch
+<a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external">Movie Recommender using pytorch</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Simple implementation</p>
+<a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external">Simple implementation</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-01-16-movie-recommender-pytorch.html">
+<a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external">
 <div class="listing-date">
 Jan 16, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-listing-date-sort="1641753000000" data-listing-file-modified-sort="1705374863557" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="19" data-listing-date-sort="1641753000000" data-listing-file-modified-sort="1705374863557" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="113">
 <div class="thumbnail">
-<p><a href="./posts/2022-01-10-sklearn-2.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-01-10-sklearn-2.html" class="no-external"></a></p><a href="./posts/2022-01-10-sklearn-2.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-01-10-sklearn-2.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-01-10-sklearn-2.html">
 <h3 class="no-anchor listing-title">
-Sklearn - Adult Income Classificat
+<a href="./posts/2022-01-10-sklearn-2.html" class="no-external">Sklearn - Adult Income Classificat</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-01-10-sklearn-2.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Basics</p>
+<a href="./posts/2022-01-10-sklearn-2.html" class="no-external">Basics</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-01-10-sklearn-2.html">
+<a href="./posts/2022-01-10-sklearn-2.html" class="no-external">
 <div class="listing-date">
 Jan 10, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-listing-date-sort="1641407400000" data-listing-file-modified-sort="1705374825571" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="20" data-listing-date-sort="1641407400000" data-listing-file-modified-sort="1705374825571" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94">
 <div class="thumbnail">
-<p><a href="./posts/2022-01-06-linear-regression.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2022-01-06-linear-regression.html" class="no-external"></a></p><a href="./posts/2022-01-06-linear-regression.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2022-01-06-linear-regression.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-01-06-linear-regression.html">
 <h3 class="no-anchor listing-title">
-Linear Regression
+<a href="./posts/2022-01-06-linear-regression.html" class="no-external">Linear Regression</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-01-06-linear-regression.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Basics</p>
+<a href="./posts/2022-01-06-linear-regression.html" class="no-external">Basics</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-01-06-linear-regression.html">
+<a href="./posts/2022-01-06-linear-regression.html" class="no-external">
 <div class="listing-date">
 Jan 6, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-listing-date-sort="1640629800000" data-listing-file-modified-sort="1705374825545" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="21" data-listing-date-sort="1640629800000" data-listing-file-modified-sort="1705374825545" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="432">
 <div class="thumbnail">
-<p><a href="./posts/2021-12-28-variational-inference.html"> <p class="card-img-top"><img src="posts/2021-12-28-variational-inference_files/figure-html/cell-8-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/2021-12-28-variational-inference.html" class="no-external"></a></p><a href="./posts/2021-12-28-variational-inference.html" class="no-external">
+<p class="card-img-top"><img src="posts/2021-12-28-variational-inference_files/figure-html/cell-8-output-2.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/2021-12-28-variational-inference.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-12-28-variational-inference.html">
 <h3 class="no-anchor listing-title">
-Variational Inference
+<a href="./posts/2021-12-28-variational-inference.html" class="no-external">Variational Inference</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2021-12-28-variational-inference.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Under the hood</p>
+<a href="./posts/2021-12-28-variational-inference.html" class="no-external">Under the hood</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-12-28-variational-inference.html">
+<a href="./posts/2021-12-28-variational-inference.html" class="no-external">
 <div class="listing-date">
 Dec 28, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-listing-date-sort="1640197800000" data-listing-file-modified-sort="1705374825546" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="22" data-listing-date-sort="1640197800000" data-listing-file-modified-sort="1705374825546" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="117">
 <div class="thumbnail">
-<p><a href="./posts/2021-12-23-la-column-spaces.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2021-12-23-la-column-spaces.html" class="no-external"></a></p><a href="./posts/2021-12-23-la-column-spaces.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2021-12-23-la-column-spaces.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-12-23-la-column-spaces.html">
 <h3 class="no-anchor listing-title">
-MIT 18.065 Linear Algebra, Lecture 1
+<a href="./posts/2021-12-23-la-column-spaces.html" class="no-external">MIT 18.065 Linear Algebra, Lecture 1</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2021-12-23-la-column-spaces.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Understanding column spaces</p>
+<a href="./posts/2021-12-23-la-column-spaces.html" class="no-external">Understanding column spaces</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-12-23-la-column-spaces.html">
+<a href="./posts/2021-12-23-la-column-spaces.html" class="no-external">
 <div class="listing-date">
 Dec 23, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="fastpages,jupyter" data-listing-date-sort="1638037800000" data-listing-file-modified-sort="1705375096626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="23" data-categories="fastpages,jupyter" data-listing-date-sort="1638037800000" data-listing-file-modified-sort="1705375096626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="41">
 <div class="thumbnail">
-<p><a href="./posts/2021-11-28-sklearn-intro.html"> <p class="card-img-top"><img src="posts/2021-11-28-sklearn-intro_files/figure-html/cell-5-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/2021-11-28-sklearn-intro.html" class="no-external"></a></p><a href="./posts/2021-11-28-sklearn-intro.html" class="no-external">
+<p class="card-img-top"><img src="posts/2021-11-28-sklearn-intro_files/figure-html/cell-5-output-2.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/2021-11-28-sklearn-intro.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-11-28-sklearn-intro.html">
 <h3 class="no-anchor listing-title">
-sklearn intro
+<a href="./posts/2021-11-28-sklearn-intro.html" class="no-external">sklearn intro</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2021-11-28-sklearn-intro.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('fastpages'); return false;">
 fastpages
@@ -692,80 +801,76 @@ fastpages
 jupyter
 </div>
 </div>
-<a href="./posts/2021-11-28-sklearn-intro.html">
 <div class="listing-description">
-<p>Classification, Clustering and Regression</p>
+<a href="./posts/2021-11-28-sklearn-intro.html" class="no-external">Classification, Clustering and Regression</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-11-28-sklearn-intro.html">
+<a href="./posts/2021-11-28-sklearn-intro.html" class="no-external">
 <div class="listing-date">
 Nov 28, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-listing-date-sort="1637519400000" data-listing-file-modified-sort="1705374825519" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="24" data-listing-date-sort="1637519400000" data-listing-file-modified-sort="1705374825519" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
 <div class="thumbnail">
-<p><a href="./posts/2021-11-22-01-the-machine-learning-landscape.html"> <p class="card-img-top"><img src="posts/2021-11-22-01-the-machine-learning-landscape_files/figure-html/cell-6-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external"></a></p><a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external">
+<p class="card-img-top"><img src="posts/2021-11-22-01-the-machine-learning-landscape_files/figure-html/cell-6-output-2.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html">
 <h3 class="no-anchor listing-title">
-Hands - on ML. Chapter 1
+<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external">Hands - on ML. Chapter 1</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Classification, Clustering and Regression</p>
+<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external">Classification, Clustering and Regression</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html">
+<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external">
 <div class="listing-date">
 Nov 22, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-listing-date-sort="1636569000000" data-listing-file-modified-sort="1705374825539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="25" data-listing-date-sort="1636569000000" data-listing-file-modified-sort="1705374825539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="179">
 <div class="thumbnail">
-<p><a href="./posts/2021-11-11-linear-algebra-svd.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external"></a></p><a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2021-11-11-linear-algebra-svd.html">
 <h3 class="no-anchor listing-title">
-Fastai Linear Algebra - chapter 1
+<a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external">Fastai Linear Algebra - chapter 1</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Image background removal with SGD</p>
+<a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external">Image background removal with SGD</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/2021-11-11-linear-algebra-svd.html">
+<a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external">
 <div class="listing-date">
 Nov 11, 2021
 </div>
 </a>
 </div>
 </div>
-:::
-
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-<p>:::</p>
-<p>:::</p>
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing"></div></main> <!-- /main -->
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -845,10 +950,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/achinta\.github\.io\/notes\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -858,8 +980,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -871,7 +1002,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -915,6 +1169,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -940,6 +1195,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1000,6 +1281,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
