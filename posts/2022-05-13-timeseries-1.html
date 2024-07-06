@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2022-05-13">
 
-<title>notes - Passenger dataset</title>
+<title>Passenger dataset – notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -217,10 +217,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>series.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -252,7 +251,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -304,7 +302,121 @@ Successfully installed async-timeout-4.0.2 deprecated-1.2.13 redis-4.3.1 wrapt-1
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> redis.Redis()</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>r.<span class="bu">set</span>(<span class="st">'foo'</span>, <span class="st">'bar'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>ConnectionError: Connection closed by server.</code></pre>
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ConnectionError</span>                           Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [27]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 4&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg ansi-bold">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span> <span style="font-weight:bold;color:rgb(0,0,255)">redis</span>
+<span class="ansi-green-fg ansi-bold">      3</span> r <span style="color:rgb(98,98,98)">=</span> redis<span style="color:rgb(98,98,98)">.</span>Redis()
+<span class="ansi-green-fg">----&gt; 4</span> <span class="ansi-yellow-bg">r</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">set</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">foo</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">bar</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/commands/core.py:2208</span>, in <span class="ansi-cyan-fg">BasicKeyCommands.set</span><span class="ansi-blue-fg">(self, name, value, ex, px, nx, xx, keepttl, get, exat, pxat)</span>
+<span class="ansi-green-fg ansi-bold">   2205</span>     pieces<span style="color:rgb(98,98,98)">.</span>append(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">GET</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg ansi-bold">   2206</span>     options[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">get</span><span style="color:rgb(175,0,0)">"</span>] <span style="color:rgb(98,98,98)">=</span> <span style="font-weight:bold;color:rgb(0,135,0)">True</span>
+<span class="ansi-green-fg">-&gt; 2208</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">execute_command</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">SET</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">pieces</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">options</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/client.py:1227</span>, in <span class="ansi-cyan-fg">Redis.execute_command</span><span class="ansi-blue-fg">(self, *args, **options)</span>
+<span class="ansi-green-fg ansi-bold">   1224</span> conn <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>connection <span style="font-weight:bold;color:rgb(175,0,255)">or</span> pool<span style="color:rgb(98,98,98)">.</span>get_connection(command_name, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>options)
+<span class="ansi-green-fg ansi-bold">   1226</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; 1227</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">conn</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">retry</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">call_with_retry</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg ansi-bold">   1228</span> <span class="ansi-yellow-bg">        </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">lambda</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_send_command_parse_response</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg ansi-bold">   1229</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">command_name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">options</span>
+<span class="ansi-green-fg ansi-bold">   1230</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1231</span> <span class="ansi-yellow-bg">        </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">lambda</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">error</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_disconnect_raise</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">error</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1232</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">   1233</span> <span style="font-weight:bold;color:rgb(0,135,0)">finally</span>:
+<span class="ansi-green-fg ansi-bold">   1234</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>connection:
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/retry.py:49</span>, in <span class="ansi-cyan-fg">Retry.call_with_retry</span><span class="ansi-blue-fg">(self, do, fail)</span>
+<span class="ansi-green-fg ansi-bold">     47</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_supported_errors <span style="font-weight:bold;color:rgb(0,135,0)">as</span> error:
+<span class="ansi-green-fg ansi-bold">     48</span>     failures <span style="color:rgb(98,98,98)">+</span><span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(98,98,98)">1</span>
+<span class="ansi-green-fg">---&gt; 49</span>     <span class="ansi-yellow-bg">fail</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">error</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">     50</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_retries <span style="color:rgb(98,98,98)">&gt;</span><span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(98,98,98)">0</span> <span style="font-weight:bold;color:rgb(175,0,255)">and</span> failures <span style="color:rgb(98,98,98)">&gt;</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_retries:
+<span class="ansi-green-fg ansi-bold">     51</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> error
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/client.py:1231</span>, in <span class="ansi-cyan-fg">Redis.execute_command.&lt;locals&gt;.&lt;lambda&gt;</span><span class="ansi-blue-fg">(error)</span>
+<span class="ansi-green-fg ansi-bold">   1224</span> conn <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>connection <span style="font-weight:bold;color:rgb(175,0,255)">or</span> pool<span style="color:rgb(98,98,98)">.</span>get_connection(command_name, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>options)
+<span class="ansi-green-fg ansi-bold">   1226</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg ansi-bold">   1227</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> conn<span style="color:rgb(98,98,98)">.</span>retry<span style="color:rgb(98,98,98)">.</span>call_with_retry(
+<span class="ansi-green-fg ansi-bold">   1228</span>         <span style="font-weight:bold;color:rgb(0,135,0)">lambda</span>: <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_send_command_parse_response(
+<span class="ansi-green-fg ansi-bold">   1229</span>             conn, command_name, <span style="color:rgb(98,98,98)">*</span>args, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>options
+<span class="ansi-green-fg ansi-bold">   1230</span>         ),
+<span class="ansi-green-fg">-&gt; 1231</span>         <span style="font-weight:bold;color:rgb(0,135,0)">lambda</span> error: <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_disconnect_raise</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">error</span><span class="ansi-yellow-bg">)</span>,
+<span class="ansi-green-fg ansi-bold">   1232</span>     )
+<span class="ansi-green-fg ansi-bold">   1233</span> <span style="font-weight:bold;color:rgb(0,135,0)">finally</span>:
+<span class="ansi-green-fg ansi-bold">   1234</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>connection:
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/client.py:1217</span>, in <span class="ansi-cyan-fg">Redis._disconnect_raise</span><span class="ansi-blue-fg">(self, conn, error)</span>
+<span class="ansi-green-fg ansi-bold">   1212</span> conn<span style="color:rgb(98,98,98)">.</span>disconnect()
+<span class="ansi-green-fg ansi-bold">   1213</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> (
+<span class="ansi-green-fg ansi-bold">   1214</span>     conn<span style="color:rgb(98,98,98)">.</span>retry_on_error <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>
+<span class="ansi-green-fg ansi-bold">   1215</span>     <span style="font-weight:bold;color:rgb(175,0,255)">or</span> <span style="color:rgb(0,135,0)">isinstance</span>(error, <span style="color:rgb(0,135,0)">tuple</span>(conn<span style="color:rgb(98,98,98)">.</span>retry_on_error)) <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">False</span>
+<span class="ansi-green-fg ansi-bold">   1216</span> ):
+<span class="ansi-green-fg">-&gt; 1217</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> error
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/retry.py:46</span>, in <span class="ansi-cyan-fg">Retry.call_with_retry</span><span class="ansi-blue-fg">(self, do, fail)</span>
+<span class="ansi-green-fg ansi-bold">     44</span> <span style="font-weight:bold;color:rgb(0,135,0)">while</span> <span style="font-weight:bold;color:rgb(0,135,0)">True</span>:
+<span class="ansi-green-fg ansi-bold">     45</span>     <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">---&gt; 46</span>         <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">do</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">     47</span>     <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_supported_errors <span style="font-weight:bold;color:rgb(0,135,0)">as</span> error:
+<span class="ansi-green-fg ansi-bold">     48</span>         failures <span style="color:rgb(98,98,98)">+</span><span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(98,98,98)">1</span>
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/client.py:1228</span>, in <span class="ansi-cyan-fg">Redis.execute_command.&lt;locals&gt;.&lt;lambda&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg ansi-bold">   1224</span> conn <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>connection <span style="font-weight:bold;color:rgb(175,0,255)">or</span> pool<span style="color:rgb(98,98,98)">.</span>get_connection(command_name, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>options)
+<span class="ansi-green-fg ansi-bold">   1226</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg ansi-bold">   1227</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> conn<span style="color:rgb(98,98,98)">.</span>retry<span style="color:rgb(98,98,98)">.</span>call_with_retry(
+<span class="ansi-green-fg">-&gt; 1228</span>         <span style="font-weight:bold;color:rgb(0,135,0)">lambda</span>: <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_send_command_parse_response</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg ansi-bold">   1229</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">command_name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">options</span>
+<span class="ansi-green-fg ansi-bold">   1230</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">)</span>,
+<span class="ansi-green-fg ansi-bold">   1231</span>         <span style="font-weight:bold;color:rgb(0,135,0)">lambda</span> error: <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_disconnect_raise(conn, error),
+<span class="ansi-green-fg ansi-bold">   1232</span>     )
+<span class="ansi-green-fg ansi-bold">   1233</span> <span style="font-weight:bold;color:rgb(0,135,0)">finally</span>:
+<span class="ansi-green-fg ansi-bold">   1234</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>connection:
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/client.py:1204</span>, in <span class="ansi-cyan-fg">Redis._send_command_parse_response</span><span class="ansi-blue-fg">(self, conn, command_name, *args, **options)</span>
+<span class="ansi-green-fg ansi-bold">   1200</span> <span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg ansi-bold">   1201</span> <span style="font-style:italic;color:rgb(175,0,0)">Send a command and parse the response</span>
+<span class="ansi-green-fg ansi-bold">   1202</span> <span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg ansi-bold">   1203</span> conn<span style="color:rgb(98,98,98)">.</span>send_command(<span style="color:rgb(98,98,98)">*</span>args)
+<span class="ansi-green-fg">-&gt; 1204</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">parse_response</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">conn</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">command_name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">options</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/client.py:1243</span>, in <span class="ansi-cyan-fg">Redis.parse_response</span><span class="ansi-blue-fg">(self, connection, command_name, **options)</span>
+<span class="ansi-green-fg ansi-bold">   1241</span>         response <span style="color:rgb(98,98,98)">=</span> connection<span style="color:rgb(98,98,98)">.</span>read_response(disable_decoding<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">True</span>)
+<span class="ansi-green-fg ansi-bold">   1242</span>     <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">-&gt; 1243</span>         response <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">connection</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">read_response</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">   1244</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> ResponseError:
+<span class="ansi-green-fg ansi-bold">   1245</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> EMPTY_RESPONSE <span style="font-weight:bold;color:rgb(175,0,255)">in</span> options:
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/connection.py:827</span>, in <span class="ansi-cyan-fg">Connection.read_response</span><span class="ansi-blue-fg">(self, disable_decoding)</span>
+<span class="ansi-green-fg ansi-bold">    824</span>     hosterr <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">connection</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    826</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">--&gt; 827</span>     response <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_parser</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">read_response</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">disable_decoding</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">disable_decoding</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    828</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> socket<span style="color:rgb(98,98,98)">.</span>timeout:
+<span class="ansi-green-fg ansi-bold">    829</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>disconnect()
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/connection.py:320</span>, in <span class="ansi-cyan-fg">PythonParser.read_response</span><span class="ansi-blue-fg">(self, disable_decoding)</span>
+<span class="ansi-green-fg ansi-bold">    319</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">read_response</span>(<span style="color:rgb(0,135,0)">self</span>, disable_decoding<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">False</span>):
+<span class="ansi-green-fg">--&gt; 320</span>     raw <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_buffer</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">readline</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    321</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> raw:
+<span class="ansi-green-fg ansi-bold">    322</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ConnectionError</span>(SERVER_CLOSED_CONNECTION_ERROR)
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/connection.py:251</span>, in <span class="ansi-cyan-fg">SocketBuffer.readline</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-fg ansi-bold">    248</span> data <span style="color:rgb(98,98,98)">=</span> buf<span style="color:rgb(98,98,98)">.</span>readline()
+<span class="ansi-green-fg ansi-bold">    249</span> <span style="font-weight:bold;color:rgb(0,135,0)">while</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> data<span style="color:rgb(98,98,98)">.</span>endswith(SYM_CRLF):
+<span class="ansi-green-fg ansi-bold">    250</span>     <span style="font-style:italic;color:rgb(95,135,135)"># there's more data in the socket that we need</span>
+<span class="ansi-green-fg">--&gt; 251</span>     <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_read_from_socket</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    252</span>     buf<span style="color:rgb(98,98,98)">.</span>seek(<span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>bytes_read)
+<span class="ansi-green-fg ansi-bold">    253</span>     data <span style="color:rgb(98,98,98)">=</span> buf<span style="color:rgb(98,98,98)">.</span>readline()
+
+File <span class="ansi-green-fg">~/miniforge3/envs/ml/lib/python3.9/site-packages/redis/connection.py:197</span>, in <span class="ansi-cyan-fg">SocketBuffer._read_from_socket</span><span class="ansi-blue-fg">(self, length, timeout, raise_on_timeout)</span>
+<span class="ansi-green-fg ansi-bold">    195</span> <span style="font-style:italic;color:rgb(95,135,135)"># an empty string indicates the server shutdown the socket</span>
+<span class="ansi-green-fg ansi-bold">    196</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">isinstance</span>(data, <span style="color:rgb(0,135,0)">bytes</span>) <span style="font-weight:bold;color:rgb(175,0,255)">and</span> <span style="color:rgb(0,135,0)">len</span>(data) <span style="color:rgb(98,98,98)">==</span> <span style="color:rgb(98,98,98)">0</span>:
+<span class="ansi-green-fg">--&gt; 197</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ConnectionError</span>(SERVER_CLOSED_CONNECTION_ERROR)
+<span class="ansi-green-fg ansi-bold">    198</span> buf<span style="color:rgb(98,98,98)">.</span>write(data)
+<span class="ansi-green-fg ansi-bold">    199</span> data_length <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">len</span>(data)
+
+<span class="ansi-red-fg">ConnectionError</span>: Connection closed by server.</pre>
+</div>
 </div>
 </div>
 
@@ -346,18 +458,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -389,7 +490,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/achinta\.github\.io\/notes\/");
@@ -397,7 +520,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
