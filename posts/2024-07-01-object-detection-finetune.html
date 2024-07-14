@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.53">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-02-23">
+<meta name="dcterms.date" content="2024-05-27">
 
-<title>spider-dataset – notes</title>
+<title>Object Detction Finetuning – notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -148,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      
+      <h1 class="title">Object Detction Finetuning</h1>
                       </div>
   </div>
     
@@ -159,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 23, 2023</p>
+        <p class="date">May 27, 2024</p>
       </div>
     </div>
     
@@ -178,21 +144,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>We will covert the spider dataset to a networkx graph.</p>
-<div id="cell-2" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install gdown</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>gdown <span class="st">"https://drive.google.com/uc?export=download&amp;id=1_AckYkinAnhqmRQtGsQgUKAnTHxxX5J0"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Downloading...
-From: https://drive.google.com/uc?export=download&amp;id=1_AckYkinAnhqmRQtGsQgUKAnTHxxX5J0
-To: /Users/achinta/github/notes_old/_notebooks/spider.zip
-100%|██████████████████████████████████████| 99.7M/99.7M [00:13&lt;00:00, 7.45MB/s]</code></pre>
-</div>
-</div>
-<div id="cell-3" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>I was trying to finetune a object detection model on a custom dataset. I was looking for example code for the same, but most examples I could find were for classification. What could be the reason for this?</p>
+<ul>
+<li><strong>Features:</strong> After feature extraction, classification is straightforward as it is just a fully connected layer on top of the extracted features. But for object detection (say YOLO), the features we extract are in the shape <code>S X S X B X (5 + C)</code>, where S is the grid size, B is the number of bounding boxes per grid cell, 5 is the bounding box coordinates and objectness score, and C is the number of classes. Here S X S is the grid size, to which we want to divide the image.</li>
+<li><strong>Loss Computation:</strong> After bounding box generation during training time, the loss computation is also different. We need to compute the loss for the bounding box coordinates, objectness score, and class prediction.</li>
+<li><strong>Dataset Formats:</strong> There are several formats in which the labels and bounding boxes are represented. <code>Roboflow</code>, makes it easy to convert between these formats.</li>
+<li>At inference time, from all the bounding boxes generated, we need to select the bounding boxes with the highest objectness score and then apply non-max suppression to remove overlapping bounding boxes.</li>
+</ul>
 
 
 

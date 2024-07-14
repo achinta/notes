@@ -2,12 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.53">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2022-10-25">
-<meta name="description" content="Notes from https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial6/Transformers_and_MHAttention.html">
 
 <title>Transformers from scratch in pytorch – notes</title>
 <style>
@@ -179,16 +178,7 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Transformers from scratch in pytorch</h1>
-                  <div>
-        <div class="description">
-          Notes from https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial6/Transformers_and_MHAttention.html
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">fastpages</div>
-                <div class="quarto-category">jupyter</div>
-              </div>
-                  </div>
+                      </div>
   </div>
     
   
@@ -217,7 +207,8 @@ window.Quarto = {
 
 
 
-<div id="cell-1" class="cell" data-execution_count="10">
+<p>Notes from https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial6/Transformers_and_MHAttention.html</p>
+<div id="cell-2" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Standard Libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tracemalloc <span class="im">import</span> Snapshot</span>
@@ -309,7 +300,7 @@ window.Quarto = {
 <section id="multi-head-attention" class="level3">
 <h3 class="anchored" data-anchor-id="multi-head-attention">Multi Head Attention</h3>
 <p>An attention layer outputs a representation of the input sequence, based on the weights learnt for Query, Key and Value. We use multiple heads and combine them using a linear layer to get a better representation of the input sequence.</p>
-<div id="cell-3" class="cell" data-execution_count="11">
+<div id="cell-4" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> scaled_dot_product(q, k, v, mask<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    d_k <span class="op">=</span> q.size()[<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    attn_logits <span class="op">=</span> torch.matmul(q, k.transpose(<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>))</span>
@@ -320,7 +311,7 @@ window.Quarto = {
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> torch.matmul(attention, v)</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> values, attention</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="12">
+<div id="cell-5" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>seq_len, d_k <span class="op">=</span> <span class="dv">3</span>, <span class="dv">2</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> torch.randn(seq_len, d_k)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> torch.randn(seq_len, d_k)</span>
@@ -344,7 +335,7 @@ Attention
  torch.Size([3, 3])</code></pre>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="13">
+<div id="cell-6" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MultiHeadAttention(nn.Module):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_dim, embed_dim, num_heads, log_level<span class="op">=</span>logging.INFO):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
@@ -415,7 +406,7 @@ DEBUG:MultiHeadAttention:values.shape after permute - torch.Size([3, 10, 4, 4])
 DEBUG:MultiHeadAttention:values.shape after reshape - torch.Size([3, 10, 16])</code></pre>
 </div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="14">
+<div id="cell-7" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> EncoderBlock(nn.Module):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_dim, num_heads, dim_feedforward, dropout<span class="op">=</span><span class="fl">0.0</span>):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
