@@ -200,8 +200,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>base_url <span class="op">=</span> <span class="st">'http://localhost:8080'</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>address <span class="op">=</span> <span class="st">'Mumabai'</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.post(<span class="ss">f'</span><span class="sc">{</span>base_url<span class="sc">}</span><span class="ss">/search.php?q=</span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="useful-tips" class="level3">
+<h3 class="anchored" data-anchor-id="useful-tips">Useful tips</h3>
+<p>We can use hosted Neonatim for testing the api - https://nominatim.openstreetmap.org/</p>
+<p>Database layout - https://nominatim.org/release-docs/latest/develop/Database-Layout/</p>
+<p>How to access the postgres tables?</p>
+<pre class="shell"><code># Go to bash in neonatim container
+docker exec -it nominatim bash
+
+# change to neonatim user
+su nominatim
+
+# start psql
+psql</code></pre>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
