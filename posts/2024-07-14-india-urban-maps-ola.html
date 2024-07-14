@@ -184,10 +184,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>There was a need to move away from Google Maps for locality data in India due to increase in Google Maps geocoding pricing. We could find very good Village data from <a href="https://lgdirectory.gov.in/">Local Government Directory</a>. But the urban data still consisted of government bodies in urban areas, but not the new and popular names they are referred with. For example, we may not find HSR Layout (Bangalore)</p>
 <section id="data-sources-considered" class="level3">
 <h3 class="anchored" data-anchor-id="data-sources-considered">Data Sources considered</h3>
-<section id="india-postcode-data" class="level5">
-<h5 class="anchored" data-anchor-id="india-postcode-data">India postcode data</h5>
-<p>https://www.data.gov.in/resource/all-india-pincode-directory-till-last-month This contains only the postal codes. If an urban area does not have a post office, we cannot find it in this dataset</p>
-<div id="cell-2" class="cell" data-execution_count="9">
+<p>(this needs to be expanded. WIP) ##### India postcode data https://www.data.gov.in/resource/all-india-pincode-directory-till-last-month This contains only the postal codes. If an urban area does not have a post office, we cannot find it in this dataset</p>
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -199,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>postcodes shape - (157126, 11)
 number of unique postcodes - 19300</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
@@ -270,7 +268,6 @@ number of unique postcodes - 19300</code></pre>
 </div>
 </div>
 </section>
-</section>
 <section id="google-maps-vs-ola-maps" class="level3">
 <h3 class="anchored" data-anchor-id="google-maps-vs-ola-maps">Google Maps vs Ola Maps</h3>
 <p>When we search for ‘Goregoan, Mumbai’ in https://developers.google.com/maps/documentation/geocoding/overview#geocoding-requests, it is identified as a sublocality.</p>
@@ -281,11 +278,11 @@ number of unique postcodes - 19300</code></pre>
 </figure>
 </div>
 <p>Let us search for it in Ola Maps</p>
-<div id="cell-5" class="cell" data-execution_count="12">
+<div id="cell-5" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> os.environ.get(<span class="st">'OLA_MAPS_API_KEY'</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> os.environ.get(<span class="st">'OLA_MAPS_API_KEY'</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>address <span class="op">=</span> <span class="st">'Goregoan, Mumbai'</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
@@ -298,14 +295,126 @@ number of unique postcodes - 19300</code></pre>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, params<span class="op">=</span>params)</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> response.json()</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>resp</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># print(f'num results - {len(resp["geocodingResults"])}')</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># print(resp["geocodingResults"][0]["formattedAddress"])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>{'message': 'Unauthorized'}</code></pre>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'num results - </span><span class="sc">{</span><span class="bu">len</span>(resp[<span class="st">"geocodingResults"</span>])<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(resp[<span class="st">"geocodingResults"</span>])):</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>idx<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>resp[<span class="st">"geocodingResults"</span>][idx][<span class="st">"formatted_address"</span>]<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># print formatted json</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(resp[<span class="st">'geocodingResults'</span>][<span class="dv">0</span>], indent<span class="op">=</span><span class="dv">4</span>, sort_keys<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>num results - 5
+1 - Lupin, Mantri Park, Goregoan East, Lupin, IGIDR, Nagri Niwara CoOperative Housing Society, Goregaon, Mumbai, Maharashtra, 400065, India
+2 - Goregoan West, Teen Dongari, Prem Nagar, Goregaon West, Mumbai, Maharashtra, 400104, India
+3 - Goregoan East, Peru Baug, Churi Wadi, Goregaon, Mumbai, Maharashtra, 400063, India
+4 - Parking Goregoan, Laxmi Rd, Ganesh Nagar, Goregaon, Mumbai, Maharashtra, 400065, India
+5 - Goregoan Properties, 138, 4, Jawahar Nagar Rd, No 9, Goregaon West, Mumbai, Maharashtra, 400104, India
+{
+    "address_components": [
+        {
+            "long_name": "India",
+            "short_name": "India",
+            "types": [
+                "country"
+            ]
+        },
+        {
+            "long_name": "MAHARASHTRA",
+            "short_name": "MAHARASHTRA",
+            "types": [
+                "administrative_area_level_1"
+            ]
+        },
+        {
+            "long_name": "Mumbai Suburban",
+            "short_name": "Mumbai Suburban",
+            "types": [
+                "administrative_area_level_2"
+            ]
+        },
+        {
+            "long_name": "Mumbai Suburban",
+            "short_name": "Mumbai Suburban",
+            "types": [
+                "administrative_area_level_3"
+            ]
+        },
+        {
+            "long_name": "Mumbai",
+            "short_name": "Mumbai",
+            "types": [
+                "locality"
+            ]
+        },
+        {
+            "long_name": "Goregaon",
+            "short_name": "Goregaon",
+            "types": [
+                "sublocality"
+            ]
+        },
+        {
+            "long_name": "Nagri Niwara Cooperative Housing Society",
+            "short_name": "Nagri Niwara Cooperative Housing Society",
+            "types": [
+                "neighborhood"
+            ]
+        },
+        {
+            "long_name": "IGIDR",
+            "short_name": "IGIDR",
+            "types": [
+                "sublocality_level_3"
+            ]
+        },
+        {
+            "long_name": "400065",
+            "short_name": "400065",
+            "types": [
+                "postal_code"
+            ]
+        },
+        {
+            "long_name": "Dr Babasaheb Ambedkar Marg",
+            "short_name": "Dr Babasaheb Ambedkar Marg",
+            "types": [
+                "street_address"
+            ]
+        }
+    ],
+    "formatted_address": "Lupin, Mantri Park, Goregoan East, Lupin, IGIDR, Nagri Niwara CoOperative Housing Society, Goregaon, Mumbai, Maharashtra, 400065, India",
+    "geometry": {
+        "location": {
+            "lat": 19.16876,
+            "lng": 72.88076
+        },
+        "location_type": "approximate",
+        "viewport": {
+            "northeast": {
+                "lat": 19.170017641397767,
+                "lng": 72.88209146368071
+            },
+            "southwest": {
+                "lat": 19.16750235860223,
+                "lng": 72.87942853631928
+            }
+        }
+    },
+    "layer": [
+        "venue"
+    ],
+    "name": "Lupin, Mantri Park, Goregoan East",
+    "place_id": "ola-platform:0196ad08d2baaf291a0a3bf153c7bdab",
+    "plus_code": {
+        "compound_code": "NA",
+        "global_code": "NA"
+    },
+    "types": []
+}</code></pre>
 </div>
 </div>
+<p>We can see that Ola Maps returns specific addresses with matching names, but not the <code>sublocality</code>. We can retrieve <code>sublocality</code> from the returned components, but if there are no matching addresses, we will miss out sub sub-localities</p>
 
 
 </section>
