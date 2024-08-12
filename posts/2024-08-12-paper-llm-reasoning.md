@@ -12,7 +12,7 @@ Paper - https://arxiv.org/abs/2201.11903
 
 In other words, when we use fewshot prompting, if we provide the sample answers in the chain of thought format instead of just providing the answer, LLMs are able to perform complex reasoning. 
 
-Let us see a few examples of Q & A, where the answers follow the chain-of-thought pattern. 
+Let us see a few examples of Q & A, where the answers follow the chain-of-thought (COT) pattern. 
 
 #### Examples
 Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now?
@@ -28,6 +28,6 @@ A: The answer must be something in the forest. Of the above choices, only natura
 #### Results
 What are main take-aways?
 
-1. Chain-of-thought prompting does not positively impact performance for small models, and only yields performance gains when used with models of  100B parameters.
-2. Chain-of-thought prompting has larger performance gains for more-complicated problems. 
-3. Chain-of-thought prompting via GPT-3 175B and PaLM 540B compares favorably to prior state of the art, which typically finetunes a task-specific model on a labeled training dataset.
+1. COT prompting does not positively impact performance for small models, and only yields performance gains when used with models of  100B parameters.
+2. It has larger performance gains for more-complicated problems. 
+3. COT prompting via GPT-3 175B and PaLM 540B compares favorably to prior state of the art, which typically finetunes a task-specific model on a labeled training dataset.
