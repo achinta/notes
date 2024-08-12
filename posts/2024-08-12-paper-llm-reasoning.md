@@ -27,6 +27,7 @@ A: The answer must be something in the forest. Of the above choices, only natura
 
 #### Results
 What are main take-aways?
+
 1. Chain-of-thought prompting does not positively impact performance for small models, and only yields performance gains when used with models of  100B parameters.
 2. Chain-of-thought prompting has larger performance gains for more-complicated problems. 
 3. Chain-of-thought prompting via GPT-3 175B and PaLM 540B compares favorably to prior state of the art, which typically finetunes a task-specific model on a labeled training dataset.
