@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-06-28">
+<meta name="dcterms.date" content="2024-08-12">
 
-<title>Open Street Maps for Geocoding locally – notes</title>
+<title>Paper Summary: COT Prompting Elicits Reasoning in Large Language Models – notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -148,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Open Street Maps for Geocoding locally</h1>
+      <h1 class="title">Paper Summary: COT Prompting Elicits Reasoning in Large Language Models</h1>
                       </div>
   </div>
     
@@ -159,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 28, 2024</p>
+        <p class="date">August 12, 2024</p>
       </div>
     </div>
     
@@ -178,41 +144,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>We have a need to geocode (get latlong from an address component) a large number of addresses. Doing it using google maps api would be expensive. Hence trying out Open Street Maps (<a href="https://www.openstreetmap.org/#map=5/21.843/82.795">OSM</a>)</p>
-<p><a href="https://nominatim.org/release-docs/latest/">Nominatum</a> is an api service for OSM.</p>
-<p>More details on importing the data - https://nominatim.org/release-docs/4.4/admin/Import/</p>
-<p>We start the docker container and import the data, as described <a href="https://github.com/mediagis/nominatim-docker/tree/master/4.4">here</a></p>
-<pre class="shell"><code>docker run -it \
-  -e PBF_URL=https://download.geofabrik.de/asia/india-latest.osm.pbf \
-  -e REPLICATION_URL=https://download.geofabrik.de/asia/india-updates/ \
-  -e IMPORT_STYLE=street \
-  -p 8080:8080 \
-  -v nominatim-data:/var/lib/postgresql/14/main \
-  -v nominatim-flatnode:/nominatim/flatnode \
-  -e IMPORT_WIKIPEDIA=false \
-  --name nominatim \
-  mediagis/nominatim:4.4</code></pre>
-<p>The import took around 5 hours (as it was India data only) The docker memory usage of 9GB. The <code>nominatim-data</code> volume is around 24 GB and <code>nominatim-flatnode</code> is around 96 GB.</p>
-<p>We can start the container again using the following command</p>
-<pre class="shell"><code>docker start nominatim</code></pre>
-<p>We can start searching for locations using</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>base_url <span class="op">=</span> <span class="st">'http://localhost:8080'</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>address <span class="op">=</span> <span class="st">'Mumabai'</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.post(<span class="ss">f'</span><span class="sc">{</span>base_url<span class="sc">}</span><span class="ss">/search.php?q=</span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="useful-tips" class="level3">
-<h3 class="anchored" data-anchor-id="useful-tips">Useful tips</h3>
-<p>We can use hosted Neonatim for testing the api - https://nominatim.openstreetmap.org/</p>
-<p>Database layout - https://nominatim.org/release-docs/latest/develop/Database-Layout/</p>
-<p>How to access the postgres tables?</p>
-<pre class="shell"><code># Go to bash in neonatim container
-docker exec -it nominatim bash
-
-# change to neonatim user
-su nominatim
-
-# start psql
-psql</code></pre>
+<p>Paper - https://arxiv.org/abs/2201.11903</p>
+<blockquote class="blockquote">
+<p>We explore how generating a chain of thought – a series of intermediate reasoning steps – significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain of thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting. Experiments on three large language models show that chain of thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a 540B-parameter language model with just eight chain of thought exemplars achieves state of the art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier.</p>
+</blockquote>
+<p>In the fewshot examples that we provide in the prompt, if we provide the sample answers in the chain of thought format, instead of just providing the answer, LLMs are able to perform complex reasoning.</p>
+<section id="examples" class="level4">
+<h4 class="anchored" data-anchor-id="examples">Examples</h4>
+<p>Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now?</p>
+<p>A: Roger started with 5 balls. 2 cans of 3 tennis balls each is 6 tennis balls. 5 + 6 = 11. The answer is 11.</p>
+<hr>
+<p>Q: The fox walked from the city into the forest, what was it looking for? Answer Choices: (a) pretty flowers (b) hen house (c) natural habitat (d) storybook</p>
+<p>A: The answer must be something in the forest. Of the above choices, only natural habitat is in the forest. So the answer is (b)</p>
+</section>
+<section id="results" class="level4">
+<h4 class="anchored" data-anchor-id="results">Results</h4>
+<ol type="1">
+<li>That is, chain-of-thought prompting does not positively impact performance for small models, and only yields performance gains when used with models of  100B parameters.</li>
+<li>Chain-of-thought prompting has larger performance gains for more-complicated problems.</li>
+<li>Chain-of-thought prompting via GPT-3 175B and PaLM 540B compares favorably to prior state of the art, which typically finetunes a task-specific model on a labeled training dataset.</li>
+</ol>
 
 
 </section>
