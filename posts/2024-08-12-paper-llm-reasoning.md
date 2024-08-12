@@ -2,7 +2,7 @@
 title: "Paper Summary: COT Prompting Elicits Reasoning in Large Language Models"
 format: html
 date: 2024-08-12
-tags: paper, LLM, reasoning
+tags: [paper, LLM, reasoning]
 ---
 
 
