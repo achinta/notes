@@ -149,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
 <p>We explore how generating a chain of thought – a series of intermediate reasoning steps – significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain of thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting. Experiments on three large language models show that chain of thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a 540B-parameter language model with just eight chain of thought exemplars achieves state of the art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier.</p>
 </blockquote>
 <p>In other words, when we use fewshot prompting, if we provide the sample answers in the chain of thought format instead of just providing the answer, LLMs are able to perform complex reasoning.</p>
-<p>Let us see a few examples of Q &amp; A, where the answers follow the chain-of-thought pattern.</p>
+<p>Let us see a few examples of Q &amp; A, where the answers follow the chain-of-thought (COT) pattern.</p>
 <section id="examples" class="level4">
 <h4 class="anchored" data-anchor-id="examples">Examples</h4>
 <p>Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now?</p>
@@ -162,9 +162,9 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="results">Results</h4>
 <p>What are main take-aways?</p>
 <ol type="1">
-<li>Chain-of-thought prompting does not positively impact performance for small models, and only yields performance gains when used with models of  100B parameters.</li>
-<li>Chain-of-thought prompting has larger performance gains for more-complicated problems.</li>
-<li>Chain-of-thought prompting via GPT-3 175B and PaLM 540B compares favorably to prior state of the art, which typically finetunes a task-specific model on a labeled training dataset.</li>
+<li>COT prompting does not positively impact performance for small models, and only yields performance gains when used with models of  100B parameters.</li>
+<li>It has larger performance gains for more-complicated problems.</li>
+<li>COT prompting via GPT-3 175B and PaLM 540B compares favorably to prior state of the art, which typically finetunes a task-specific model on a labeled training dataset.</li>
 </ol>
 
 
