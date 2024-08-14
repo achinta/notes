@@ -178,7 +178,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>I want to minimize the cost involved in running a qdrant vector database, while keeping it scalable. But how do we persist the data across instances? Google Cloud Run gen2 supports mounting a cloud storage bucket as a volume.</p>
+<p>I want to minimize the cost involved in running a Qdrant vector database on Google Cloud.</p>
+<p><strong>Why Google Cloud Run for a running a vector database?</strong></p>
+<p>Running on Google Cloud Run offers the following advantages - Auto Scaling with load - We can keep the –min-instances to 0 to to stop running when there is no load.</p>
+<p>But the challenge is - storage on the Cloud Run containers is ephemeral. So what would be the common persistent storage for Qdrant?</p>
+<p>Luckily, from gen2, Cloud Run supports mounting a cloud storage bucket as a volume, which can be accessible across the cloud run instances.</p>
+<p>So here are the gcloud command to setup create the storage bucket and to update/deploy the cloud run service.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set the project name and region</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PROJECT_ID</span><span class="op">=</span>project_xyz</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">REGION</span><span class="op">=</span>asia-southeast1</span>
