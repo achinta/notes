@@ -7,6 +7,7 @@ date: 2024-08-20
 I have a Mac Mini running in my LAN. It is configured as `mini` in `/etc/hosts` in my local host (which is a Macbook Air). 
 We will try to do all the steps on command line, so that we need not access the Mac Mini desktop. 
 
+## Ollama
 ### Remote Server: Install and start Ollama
 Do these steps on the remote server
 ```shell
@@ -36,3 +37,24 @@ The web UI can be accessible at http://localhost:3000
 
 ### Tips
 Some tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/
+
+### OpenAI compatible Llama.cpp 
+
+```shell
+# install llama-cpp-python server with Metal 
+CMAKE_ARGS="-DGGML_METAL=on" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'
+
+# start the llama.cpp server with a single model
+python3 -m llama_cpp.server --hf_model_repo_id bartowski/Meta-Llama-3.1-8B-Instruct-GGUF --model '*Q6_K_L.gguf' --chat_format llama-3 --host 0.0.0.0
+
+# call chat completion to test
+curl -s http://mini:8000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+   "messages": [
+      {"role": "user", "content": "Tell me a joke"}
+   ]
+ }' | jq .
+```
+From the server logs, we can see that eval time tokens per second is 8.81.
+
