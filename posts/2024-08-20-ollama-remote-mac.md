@@ -34,5 +34,5 @@ docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/a
 ```
 The web UI can be accessible at http://localhost:3000
 
-
-
+### Tips
+Some tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/
