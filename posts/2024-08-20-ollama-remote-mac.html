@@ -145,6 +145,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>I have a Mac Mini running in my LAN. It is configured as <code>mini</code> in <code>/etc/hosts</code> in my local host (which is a Macbook Air). We will try to do all the steps on command line, so that we need not access the Mac Mini desktop.</p>
+<section id="ollama" class="level2">
+<h2 class="anchored" data-anchor-id="ollama">Ollama</h2>
 <section id="remote-server-install-and-start-ollama" class="level3">
 <h3 class="anchored" data-anchor-id="remote-server-install-and-start-ollama">Remote Server: Install and start Ollama</h3>
 <p>Do these steps on the remote server</p>
@@ -175,8 +177,27 @@ ollama serve</code></pre>
 <section id="tips" class="level3">
 <h3 class="anchored" data-anchor-id="tips">Tips</h3>
 <p>Some tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/</p>
+</section>
+<section id="openai-compatible-llama.cpp" class="level3">
+<h3 class="anchored" data-anchor-id="openai-compatible-llama.cpp">OpenAI compatible Llama.cpp</h3>
+<pre class="shell"><code># install llama-cpp-python server with Metal 
+CMAKE_ARGS="-DGGML_METAL=on" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'
+
+# start the llama.cpp server with a single model
+python3 -m llama_cpp.server --hf_model_repo_id bartowski/Meta-Llama-3.1-8B-Instruct-GGUF --model '*Q6_K_L.gguf' --chat_format llama-3 --host 0.0.0.0
+
+# call chat completion to test
+curl -s http://mini:8000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+   "messages": [
+      {"role": "user", "content": "Tell me a joke"}
+   ]
+ }' | jq .</code></pre>
+<p>From the server logs, we can see that eval time tokens per second is 8.81.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
