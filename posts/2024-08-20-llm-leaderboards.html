@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2024-08-20">
 
-<title>Running Ollama in remote Mac Mini – notes</title>
+<title>LLM Leaderboards and benchmarks – notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Running Ollama in remote Mac Mini</h1>
+      <h1 class="title">LLM Leaderboards and benchmarks</h1>
                       </div>
   </div>
     
@@ -144,37 +144,68 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>I have a Mac Mini running in my LAN. It is configured as <code>mini</code> in <code>/etc/hosts</code> in my local host (which is a Macbook Air). We will try to do all the steps on command line, so that we need not access the Mac Mini desktop.</p>
-<section id="remote-server-install-and-start-ollama" class="level3">
-<h3 class="anchored" data-anchor-id="remote-server-install-and-start-ollama">Remote Server: Install and start Ollama</h3>
-<p>Do these steps on the remote server</p>
-<pre class="shell"><code># Install Ollama on the remote server
-brew install ollama --cask
-
-# Set OLLAMA_HOST, so that the server can be accessible remotely 
-export OLLAMA_HOST='0.0.0.0'
-
-# Start Ollama
-ollama serve</code></pre>
-<p>OLLAMA_HOST can be added to the .bashrc or .zshrc to avoid setting it each time.</p>
+<section id="llm-leaderboards" class="level3">
+<h3 class="anchored" data-anchor-id="llm-leaderboards">LLM Leaderboards</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Leaderboard</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard">Chatbot Arena Leaderboard</a></td>
+<td>a benchmark platform for large language models (LLMs) that features anonymous, randomized battles in a crowdsourced manner.</td>
+</tr>
+<tr class="even">
+<td><a href="https://mixeval.github.io/#leaderboard">MixEval Leaderboard</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a href="https://tatsu-lab.github.io/alpaca_eval/">AlpacaEval Leaderboard</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">Open LLM Leaderboard</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a href="https://gorilla.cs.berkeley.edu/leaderboard.html">Berkeley Function-Calling Leaderboard</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="on-localhost" class="level3">
-<h3 class="anchored" data-anchor-id="on-localhost">On Localhost</h3>
-<section id="check-that-ollama-service-is-accessible" class="level5">
-<h5 class="anchored" data-anchor-id="check-that-ollama-service-is-accessible">1. Check that Ollama service is accessible</h5>
-<p>Using a browser, go to http://mini:11434/. It should show the message “Ollama is running”</p>
+<section id="embedding-leaderboard" class="level3">
+<h3 class="anchored" data-anchor-id="embedding-leaderboard">Embedding Leaderboard</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Leaderboard</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://huggingface.co/spaces/mteb/leaderboard">Massive Text Embedding Benchmark</a></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="run-the-web-ui-for-ollama" class="level5">
-<h5 class="anchored" data-anchor-id="run-the-web-ui-for-ollama">2. Run the Web UI for Ollama</h5>
-<p>We can use https://github.com/open-webui/open-webui as UI for Ollama</p>
-<pre class="shell"><code>docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \
-    --restart always ghcr.io/open-webui/open-webui:main</code></pre>
-<p>The web UI can be accessible at http://localhost:3000</p>
-</section>
-</section>
-<section id="tips" class="level3">
-<h3 class="anchored" data-anchor-id="tips">Tips</h3>
-<p>Some tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/</p>
+<section id="inference-provider-leaderboard" class="level3">
+<h3 class="anchored" data-anchor-id="inference-provider-leaderboard">Inference Provider Leaderboard</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Leaderboard</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://leaderboard.withmartian.com/">Martian Provider Leaderboard</a></td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
