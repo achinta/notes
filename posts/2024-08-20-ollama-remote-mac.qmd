@@ -8,12 +8,12 @@ date: 2024-08-20
 ---
 
 I have a Mac Mini (16 GB, M1) running in my home network. I am exploring options available to run LLMs on it, so that 
-it does not slow down my work laptop (which is a Macbook Air). I want to use the Mac GPU to maximize the inference speed. ****
+it does not slow down my work laptop (which is a Macbook Air). I want to use the Mac GPU to maximize the inference speed.
 
 The remote Mac Mini is configured as `mini` in `/etc/hosts` in my local host. 
 
 ## Ollama
-#### Remote Server: Install and start Ollama
+#### Install and start Ollama
 Do these steps on the remote server
 ```{.zsh}
 # Install Ollama on the remote server
@@ -88,4 +88,3 @@ curl -s http://mini:8000/v1/chat/completions \
 Note that the api_key and model are set to be 'dummy'. They can be any value, as they are not used. 
 
 From the server logs, we can see that eval time tokens per second is 8.81.
-
