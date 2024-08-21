@@ -5,10 +5,12 @@ date: 2024-08-20
 ---
 
 I have a Mac Mini running in my LAN. It is configured as `mini` in `/etc/hosts` in my local host (which is a Macbook Air). 
-We will try to do all the steps on command line, so that we need not access the Mac Mini desktop. 
+I want to run LLMs in the Mac Mini so that they do not slow down my working laptop. 
+
+We will try do the steps on the Mac Mini, so that we need not access the Mac Mini desktop. 
 
 ## Ollama
-### Remote Server: Install and start Ollama
+#### Remote Server: Install and start Ollama
 Do these steps on the remote server
 ```shell
 # Install Ollama on the remote server
@@ -22,12 +24,12 @@ ollama serve
 ```
 OLLAMA_HOST can be added to the .bashrc or .zshrc to avoid setting it each time. 
 
-### On Localhost
+#### On Localhost
 
-##### 1. Check that Ollama service is accessible 
+###### 1. Check that Ollama service is accessible 
 Using a browser, go to http://mini:11434/. It should show the message "Ollama is running"
 
-##### 2. Run the Web UI for Ollama
+###### 2. Run the Web UI for Ollama
 We can use https://github.com/open-webui/open-webui as UI for Ollama
 ```shell
 docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \
@@ -35,10 +37,10 @@ docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/a
 ```
 The web UI can be accessible at http://localhost:3000
 
-### Tips
+#### Tips
 Some tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/
 
-### OpenAI compatible Llama.cpp 
+## OpenAI compatible Llama.cpp 
 
 ```shell
 # install llama-cpp-python server with Metal 
