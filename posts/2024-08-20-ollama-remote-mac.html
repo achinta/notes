@@ -144,11 +144,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>I have a Mac Mini running in my LAN. It is configured as <code>mini</code> in <code>/etc/hosts</code> in my local host (which is a Macbook Air). We will try to do all the steps on command line, so that we need not access the Mac Mini desktop.</p>
+<p>I have a Mac Mini running in my LAN. It is configured as <code>mini</code> in <code>/etc/hosts</code> in my local host (which is a Macbook Air). I want to run LLMs in the Mac Mini so that they do not slow down my working laptop.</p>
+<p>We will try do the steps on the Mac Mini, so that we need not access the Mac Mini desktop.</p>
 <section id="ollama" class="level2">
 <h2 class="anchored" data-anchor-id="ollama">Ollama</h2>
-<section id="remote-server-install-and-start-ollama" class="level3">
-<h3 class="anchored" data-anchor-id="remote-server-install-and-start-ollama">Remote Server: Install and start Ollama</h3>
+<section id="remote-server-install-and-start-ollama" class="level4">
+<h4 class="anchored" data-anchor-id="remote-server-install-and-start-ollama">Remote Server: Install and start Ollama</h4>
 <p>Do these steps on the remote server</p>
 <pre class="shell"><code># Install Ollama on the remote server
 brew install ollama --cask
@@ -160,26 +161,27 @@ export OLLAMA_HOST='0.0.0.0'
 ollama serve</code></pre>
 <p>OLLAMA_HOST can be added to the .bashrc or .zshrc to avoid setting it each time.</p>
 </section>
-<section id="on-localhost" class="level3">
-<h3 class="anchored" data-anchor-id="on-localhost">On Localhost</h3>
-<section id="check-that-ollama-service-is-accessible" class="level5">
-<h5 class="anchored" data-anchor-id="check-that-ollama-service-is-accessible">1. Check that Ollama service is accessible</h5>
+<section id="on-localhost" class="level4">
+<h4 class="anchored" data-anchor-id="on-localhost">On Localhost</h4>
+<section id="check-that-ollama-service-is-accessible" class="level6">
+<h6 class="anchored" data-anchor-id="check-that-ollama-service-is-accessible">1. Check that Ollama service is accessible</h6>
 <p>Using a browser, go to http://mini:11434/. It should show the message “Ollama is running”</p>
 </section>
-<section id="run-the-web-ui-for-ollama" class="level5">
-<h5 class="anchored" data-anchor-id="run-the-web-ui-for-ollama">2. Run the Web UI for Ollama</h5>
+<section id="run-the-web-ui-for-ollama" class="level6">
+<h6 class="anchored" data-anchor-id="run-the-web-ui-for-ollama">2. Run the Web UI for Ollama</h6>
 <p>We can use https://github.com/open-webui/open-webui as UI for Ollama</p>
 <pre class="shell"><code>docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \
     --restart always ghcr.io/open-webui/open-webui:main</code></pre>
 <p>The web UI can be accessible at http://localhost:3000</p>
 </section>
 </section>
-<section id="tips" class="level3">
-<h3 class="anchored" data-anchor-id="tips">Tips</h3>
+<section id="tips" class="level4">
+<h4 class="anchored" data-anchor-id="tips">Tips</h4>
 <p>Some tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/</p>
 </section>
-<section id="openai-compatible-llama.cpp" class="level3">
-<h3 class="anchored" data-anchor-id="openai-compatible-llama.cpp">OpenAI compatible Llama.cpp</h3>
+</section>
+<section id="openai-compatible-llama.cpp" class="level2">
+<h2 class="anchored" data-anchor-id="openai-compatible-llama.cpp">OpenAI compatible Llama.cpp</h2>
 <pre class="shell"><code># install llama-cpp-python server with Metal 
 CMAKE_ARGS="-DGGML_METAL=on" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'
 
@@ -197,7 +199,6 @@ curl -s http://mini:8000/v1/chat/completions \
 <p>From the server logs, we can see that eval time tokens per second is 8.81.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -221,14 +221,21 @@
     "href": "posts/2024-08-20-ollama-remote-mac.html",
     "title": "Running Ollama in remote Mac Mini",
     "section": "",
-    "text": "I have a Mac Mini running in my LAN. It is configured as mini in /etc/hosts in my local host (which is a Macbook Air). We will try to do all the steps on command line, so that we need not access the Mac Mini desktop."
+    "text": "I have a Mac Mini running in my LAN. It is configured as mini in /etc/hosts in my local host (which is a Macbook Air). I want to run LLMs in the Mac Mini so that they do not slow down my working laptop.\nWe will try do the steps on the Mac Mini, so that we need not access the Mac Mini desktop."
   },
   {
     "objectID": "posts/2024-08-20-ollama-remote-mac.html#ollama",
     "href": "posts/2024-08-20-ollama-remote-mac.html#ollama",
     "title": "Running Ollama in remote Mac Mini",
     "section": "Ollama",
-    "text": "Ollama\n\nRemote Server: Install and start Ollama\nDo these steps on the remote server\n# Install Ollama on the remote server\nbrew install ollama --cask\n\n# Set OLLAMA_HOST, so that the server can be accessible remotely \nexport OLLAMA_HOST='0.0.0.0'\n\n# Start Ollama\nollama serve\nOLLAMA_HOST can be added to the .bashrc or .zshrc to avoid setting it each time.\n\n\nOn Localhost\n\n1. Check that Ollama service is accessible\nUsing a browser, go to http://mini:11434/. It should show the message “Ollama is running”\n\n\n2. Run the Web UI for Ollama\nWe can use https://github.com/open-webui/open-webui as UI for Ollama\ndocker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \\\n    --restart always ghcr.io/open-webui/open-webui:main\nThe web UI can be accessible at http://localhost:3000\n\n\n\nTips\nSome tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/\n\n\nOpenAI compatible Llama.cpp\n# install llama-cpp-python server with Metal \nCMAKE_ARGS=\"-DGGML_METAL=on\" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'\n\n# start the llama.cpp server with a single model\npython3 -m llama_cpp.server --hf_model_repo_id bartowski/Meta-Llama-3.1-8B-Instruct-GGUF --model '*Q6_K_L.gguf' --chat_format llama-3 --host 0.0.0.0\n\n# call chat completion to test\ncurl -s http://mini:8000/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n   \"messages\": [\n      {\"role\": \"user\", \"content\": \"Tell me a joke\"}\n   ]\n }' | jq .\nFrom the server logs, we can see that eval time tokens per second is 8.81."
+    "text": "Ollama\n\nRemote Server: Install and start Ollama\nDo these steps on the remote server\n# Install Ollama on the remote server\nbrew install ollama --cask\n\n# Set OLLAMA_HOST, so that the server can be accessible remotely \nexport OLLAMA_HOST='0.0.0.0'\n\n# Start Ollama\nollama serve\nOLLAMA_HOST can be added to the .bashrc or .zshrc to avoid setting it each time.\n\n\nOn Localhost\n\n1. Check that Ollama service is accessible\nUsing a browser, go to http://mini:11434/. It should show the message “Ollama is running”\n\n\n2. Run the Web UI for Ollama\nWe can use https://github.com/open-webui/open-webui as UI for Ollama\ndocker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \\\n    --restart always ghcr.io/open-webui/open-webui:main\nThe web UI can be accessible at http://localhost:3000\n\n\n\nTips\nSome tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/"
+  },
+  {
+    "objectID": "posts/2024-08-20-ollama-remote-mac.html#openai-compatible-llama.cpp",
+    "href": "posts/2024-08-20-ollama-remote-mac.html#openai-compatible-llama.cpp",
+    "title": "Running Ollama in remote Mac Mini",
+    "section": "OpenAI compatible Llama.cpp",
+    "text": "OpenAI compatible Llama.cpp\n# install llama-cpp-python server with Metal \nCMAKE_ARGS=\"-DGGML_METAL=on\" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'\n\n# start the llama.cpp server with a single model\npython3 -m llama_cpp.server --hf_model_repo_id bartowski/Meta-Llama-3.1-8B-Instruct-GGUF --model '*Q6_K_L.gguf' --chat_format llama-3 --host 0.0.0.0\n\n# call chat completion to test\ncurl -s http://mini:8000/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n   \"messages\": [\n      {\"role\": \"user\", \"content\": \"Tell me a joke\"}\n   ]\n }' | jq .\nFrom the server logs, we can see that eval time tokens per second is 8.81."
   },
   {
     "objectID": "posts/2021-11-22-01-the-machine-learning-landscape.html",
