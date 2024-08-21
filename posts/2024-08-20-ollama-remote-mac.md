@@ -1,6 +1,6 @@
 ---
 title: "Running Ollama in remote Mac Mini"
-format: html
+format: gfm
 date: 2024-08-20
 ---
 
@@ -12,7 +12,7 @@ We will try do the steps on the Mac Mini, so that we need not access the Mac Min
 ## Ollama
 #### Remote Server: Install and start Ollama
 Do these steps on the remote server
-```shell
+```{shell}
 # Install Ollama on the remote server
 brew install ollama --cask
 
@@ -31,7 +31,7 @@ Using a browser, go to http://mini:11434/. It should show the message "Ollama is
 
 ###### 2. Run the Web UI for Ollama
 We can use https://github.com/open-webui/open-webui as UI for Ollama
-```shell
+```{shell}
 docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \
     --restart always ghcr.io/open-webui/open-webui:main
 ```
@@ -42,7 +42,7 @@ Some tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/com
 
 ## OpenAI compatible Llama.cpp 
 
-```shell
+```{shell}
 # install llama-cpp-python server with Metal 
 CMAKE_ARGS="-DGGML_METAL=on" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'
 
@@ -60,7 +60,7 @@ curl -s http://mini:8000/v1/chat/completions \
 ```
 
 How use the model with openai api?
-```python
+```{python}
 import openai
 
 client = openai.OpenAI(
