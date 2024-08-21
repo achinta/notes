@@ -1,19 +1,21 @@
 ---
-title: "Running Ollama in remote Mac Mini"
-format: html
+title: "Local LLM Inference on Mac Mini"
+format: 
+  html: 
+    toc: true
+    code-line-numbers: true
 date: 2024-08-20
 ---
 
-I have a Mac Mini running in my LAN. It is configured as `mini` in `/etc/hosts` in my local host (which is a Macbook Air). 
-I want to run LLMs in the Mac Mini so that they do not slow down my working laptop. 
+I have a Mac Mini (16 GB, M1) running in my home network. I am exploring options available to run LLMs on it, so that 
+it does not slow down my work laptop (which is a Macbook Air). I want to use the Mac GPU to maximize the inference speed. ****
 
-We will try do the steps on the Mac Mini, so that we need not access the Mac Mini desktop. 
+The remote Mac Mini is configured as `mini` in `/etc/hosts` in my local host. 
 
 ## Ollama
 #### Remote Server: Install and start Ollama
 Do these steps on the remote server
-```{zsh}
-#| eval: false
+```{.zsh}
 # Install Ollama on the remote server
 brew install ollama --cask
 
@@ -32,8 +34,7 @@ Using a browser, go to http://mini:11434/. It should show the message "Ollama is
 
 ###### 2. Run the Web UI for Ollama
 We can use https://github.com/open-webui/open-webui as UI for Ollama
-```{zsh}
-#| eval: false
+```{.zsh}
 docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \
     --restart always ghcr.io/open-webui/open-webui:main
 ```
@@ -42,29 +43,21 @@ The web UI can be accessible at http://localhost:3000
 #### Tips
 Some tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/
 
-## OpenAI compatible Llama.cpp 
-
-```{zsh}
-#| eval: false
+## Llama.cpp (Compatible with OpenAI)
+Install and run llama.cpp server
+```{.zsh}
 # install llama-cpp-python server with Metal 
 CMAKE_ARGS="-DGGML_METAL=on" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'
 
 # start the llama.cpp server with a single model
 python3 -m llama_cpp.server --hf_model_repo_id bartowski/Meta-Llama-3.1-8B-Instruct-GGUF --model '*Q6_K_L.gguf' --chat_format llama-3 --host 0.0.0.0
-
-# call chat completion to test
-curl -s http://mini:8000/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{
-   "messages": [
-      {"role": "user", "content": "Tell me a joke"}
-   ]
- }' | jq .
 ```
 
-How use the model with openai api?
-```{python}
-#| eval: false
+Use completion api.
+
+::: {.panel-tabset}
+## Python
+```{.python}
 import openai
 
 client = openai.OpenAI(
@@ -78,6 +71,20 @@ chat_completion = client.chat.completions.create(messages=messages, model="dummy
 response_txt = chat_completion.choices[0].message.content
 print(response_txt)
 ```
+
+## Shell
+```{.zsh}
+# call chat completion to test
+curl -s http://mini:8000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+   "messages": [
+      {"role": "user", "content": "Tell me a joke"}
+   ]
+ }' | jq .
+```
+
+:::
 Note that the api_key and model are set to be 'dummy'. They can be any value, as they are not used. 
 
 From the server logs, we can see that eval time tokens per second is 8.81.
