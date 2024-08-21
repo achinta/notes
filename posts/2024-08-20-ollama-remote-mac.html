@@ -187,12 +187,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>I have a Mac Mini (16 GB, M1) running in my home network. I am exploring options available to run LLMs on it, so that it does not slow down my work laptop (which is a Macbook Air). I want to use the Mac GPU to maximize the inference speed. ****</p>
+<p>I have a Mac Mini (16 GB, M1) running in my home network. I am exploring options available to run LLMs on it, so that it does not slow down my work laptop (which is a Macbook Air). I want to use the Mac GPU to maximize the inference speed.</p>
 <p>The remote Mac Mini is configured as <code>mini</code> in <code>/etc/hosts</code> in my local host.</p>
 <section id="ollama" class="level2">
 <h2 class="anchored" data-anchor-id="ollama">Ollama</h2>
-<section id="remote-server-install-and-start-ollama" class="level4">
-<h4 class="anchored" data-anchor-id="remote-server-install-and-start-ollama">Remote Server: Install and start Ollama</h4>
+<section id="install-and-start-ollama" class="level4">
+<h4 class="anchored" data-anchor-id="install-and-start-ollama">Install and start Ollama</h4>
 <p>Do these steps on the remote server</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource zsh number-lines code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Install Ollama on the remote server</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="ex">brew</span> install ollama <span class="at">--cask</span></span>
