@@ -185,7 +185,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="remote-server-install-and-start-ollama" class="level4">
 <h4 class="anchored" data-anchor-id="remote-server-install-and-start-ollama">Remote Server: Install and start Ollama</h4>
 <p>Do these steps on the remote server</p>
-<pre class="shell"><code># Install Ollama on the remote server
+<pre class="{zsh}"><code>#| eval: false
+# Install Ollama on the remote server
 brew install ollama --cask
 
 # Set OLLAMA_HOST, so that the server can be accessible remotely 
@@ -204,7 +205,8 @@ ollama serve</code></pre>
 <section id="run-the-web-ui-for-ollama" class="level6">
 <h6 class="anchored" data-anchor-id="run-the-web-ui-for-ollama">2. Run the Web UI for Ollama</h6>
 <p>We can use https://github.com/open-webui/open-webui as UI for Ollama</p>
-<pre class="shell"><code>docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \
+<pre class="{zsh}"><code>#| eval: false
+docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \
     --restart always ghcr.io/open-webui/open-webui:main</code></pre>
 <p>The web UI can be accessible at http://localhost:3000</p>
 </section>
@@ -216,7 +218,8 @@ ollama serve</code></pre>
 </section>
 <section id="openai-compatible-llama.cpp" class="level2">
 <h2 class="anchored" data-anchor-id="openai-compatible-llama.cpp">OpenAI compatible Llama.cpp</h2>
-<pre class="shell"><code># install llama-cpp-python server with Metal 
+<pre class="{zsh}"><code>#| eval: false
+# install llama-cpp-python server with Metal 
 CMAKE_ARGS="-DGGML_METAL=on" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'
 
 # start the llama.cpp server with a single model
@@ -231,7 +234,8 @@ curl -s http://mini:8000/v1/chat/completions \
    ]
  }' | jq .</code></pre>
 <p>How use the model with openai api?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span>
+<div id="f2278208" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> openai.OpenAI(</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    base_url <span class="op">=</span> <span class="st">"http://mini:8000/v1/"</span>,</span>
@@ -243,6 +247,7 @@ curl -s http://mini:8000/v1/chat/completions \
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>response_txt <span class="op">=</span> chat_completion.choices[<span class="dv">0</span>].message.content</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response_txt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Note that the api_key and model are set to be ‘dummy’. They can be any value, as they are not used.</p>
 <p>From the server logs, we can see that eval time tokens per second is 8.81.</p>
 
