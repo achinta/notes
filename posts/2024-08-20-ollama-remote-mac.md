@@ -58,5 +58,23 @@ curl -s http://mini:8000/v1/chat/completions \
    ]
  }' | jq .
 ```
+
+How use the model with openai api?
+```python
+import openai
+
+client = openai.OpenAI(
+    base_url = "http://mini:8000/v1/",
+    api_key='dummy'
+)
+
+messages = [{"role": "user", "content": "Tell me a joke"}]
+chat_completion = client.chat.completions.create(messages=messages, model="dummy")
+
+response_txt = chat_completion.choices[0].message.content
+print(response_txt)
+```
+Note that the api_key and model are set to be 'dummy'. They can be any value, as they are not used. 
+
 From the server logs, we can see that eval time tokens per second is 8.81.
 
