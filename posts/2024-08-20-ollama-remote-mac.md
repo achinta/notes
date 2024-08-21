@@ -1,7 +1,6 @@
 ---
 title: "Running Ollama in remote Mac Mini"
 format: html
-  toc: true
 date: 2024-08-20
 ---
 
