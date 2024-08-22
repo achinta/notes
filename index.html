@@ -78,10 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 25,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -204,738 +203,335 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1724112000000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="964">
-<div class="thumbnail">
-<p><a href="./posts/2024-08-20-llm-leaderboards.html" class="no-external"></a></p><a href="./posts/2024-08-20-llm-leaderboards.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-08-20-llm-leaderboards.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-08-20-llm-leaderboards.html" class="no-external">LLM Leaderboards and benchmarks</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-08-20-llm-leaderboards.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-08-20-llm-leaderboards.html" class="no-external">
-
-<table class="caption-top table">
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<table class="quarto-listing-table table">
 <thead>
-<tr class="header">
-<th>Leaderboard</th>
-<th>Description</th>
+<tr>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
+<th>
+Author
+</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td>Chatbot Arena Leaderboard</td>
-<td>a benchmark platform for large language models (LLMs) that features anonymous, randomized battles in a…</td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr><tr class="even"><td></td><td></td></tr><tr class="odd"><td></td><td></td></tr></tbody></table></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-08-20-llm-leaderboards.html" class="no-external">
-<div class="listing-date">
-Aug 20, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1724112000000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="326">
-<div class="thumbnail">
-<p><a href="./posts/2024-08-20-ollama-remote-mac.html" class="no-external"></a></p><a href="./posts/2024-08-20-ollama-remote-mac.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-08-20-ollama-remote-mac.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-08-20-ollama-remote-mac.html" class="no-external">Local LLM Inference on Mac Mini</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-08-20-ollama-remote-mac.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-08-20-ollama-remote-mac.html" class="no-external">I have a Mac Mini (16 GB, M1) running in my home network. I am exploring options available to run LLMs on it, so that it does not slow down my work laptop (which is a…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-08-20-ollama-remote-mac.html" class="no-external">
-<div class="listing-date">
-Aug 20, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1723420800000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
-<div class="thumbnail">
-<p><a href="./posts/2024-08-12-paper-llm-reasoning.html" class="no-external"></a></p><a href="./posts/2024-08-12-paper-llm-reasoning.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-08-12-paper-llm-reasoning.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-08-12-paper-llm-reasoning.html" class="no-external">Paper Summary: COT Prompting Elicits Reasoning in Large Language Models</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-08-12-paper-llm-reasoning.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-08-12-paper-llm-reasoning.html" class="no-external">Paper - https://arxiv.org/abs/2201.11903</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-08-12-paper-llm-reasoning.html" class="no-external">
-<div class="listing-date">
-Aug 12, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1720915200000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="214">
-<div class="thumbnail">
-<p><a href="./posts/2024-07-14-india-urban-maps-ola.html" class="no-external"></a></p><a href="./posts/2024-07-14-india-urban-maps-ola.html" class="no-external">
-<p class="card-img-top"><img src="posts/images/google_geocoding_result.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-07-14-india-urban-maps-ola.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-07-14-india-urban-maps-ola.html" class="no-external">Finding Urban Locality data for India</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-07-14-india-urban-maps-ola.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-07-14-india-urban-maps-ola.html" class="no-external">There was a need to move away from Google Maps for locality data in India due to increase in Google Maps geocoding pricing. We could find very good Village data from Local…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-07-14-india-urban-maps-ola.html" class="no-external">
-<div class="listing-date">
-Jul 14, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1719532800000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="183">
-<div class="thumbnail">
-<p><a href="./posts/2024-06-28-openstreetmaps-geocoding.html" class="no-external"></a></p><a href="./posts/2024-06-28-openstreetmaps-geocoding.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-06-28-openstreetmaps-geocoding.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-06-28-openstreetmaps-geocoding.html" class="no-external">Open Street Maps for Geocoding locally</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-06-28-openstreetmaps-geocoding.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-06-28-openstreetmaps-geocoding.html" class="no-external">We have a need to geocode (get latlong from an address component) a large number of addresses. Doing it using google maps api would be expensive. Hence trying out Open…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-06-28-openstreetmaps-geocoding.html" class="no-external">
-<div class="listing-date">
-Jun 28, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1716768000000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="222">
-<div class="thumbnail">
-<p><a href="./posts/2024-07-01-object-detection-finetune.html" class="no-external"></a></p><a href="./posts/2024-07-01-object-detection-finetune.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-07-01-object-detection-finetune.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-07-01-object-detection-finetune.html" class="no-external">Object Detction Finetuning</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-07-01-object-detection-finetune.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-07-01-object-detection-finetune.html" class="no-external">I was trying to finetune a object detection model on a custom dataset. I was looking for example code for the same, but most examples I could find were for classification.…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-07-01-object-detection-finetune.html" class="no-external">
-<div class="listing-date">
-May 27, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1716768000000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1308">
-<div class="thumbnail">
-<p><a href="./posts/2024-05-27-exploring-dspy-1.html" class="no-external"></a></p><a href="./posts/2024-05-27-exploring-dspy-1.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-05-27-exploring-dspy-1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-05-27-exploring-dspy-1.html" class="no-external">Exploring Dspy - part 1</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-05-27-exploring-dspy-1.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-05-27-exploring-dspy-1.html" class="no-external">I have a read a lot about the capabilites of the dspy library from stanford. I am trying to understand its various capabilities. Let start with the…<span style="color:red"><strong></strong></span></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-05-27-exploring-dspy-1.html" class="no-external">
-<div class="listing-date">
-May 27, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="187">
-<div class="thumbnail">
-<p><a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external"></a></p><a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external">Run Trilium server in google cloud run</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external">Trilium can be used as a personal knowledge base. It can be run locally or synchronized across multiple devices as a server. By using google cloud run as the server, we can…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-05-04-trilium-glcoud.html" class="no-external">
-<div class="listing-date">
-May 4, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1707696000000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="186">
-<div class="thumbnail">
-<p><a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external"></a></p><a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external">Run Qdrant in Google Cloud Run</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external">I want to minimize the cost involved in running a Qdrant vector database on Google Cloud.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-02-12-qdrant-cloud-run.html" class="no-external">
-<div class="listing-date">
-Feb 12, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1681862400000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="413">
-<div class="thumbnail">
-<p><a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external"></a></p><a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external">Purpose</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external">We will attempt to understand the ResdSQL paper and its implementation in github</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-04-19-text2sql-resdsql.html" class="no-external">
-<div class="listing-date">
-Apr 19, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1676764800000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="769">
-<div class="thumbnail">
-<p><a href="./posts/2023-02-19-deepseed.html" class="no-external"></a></p><a href="./posts/2023-02-19-deepseed.html" class="no-external">
-<p class="card-img-top"><img src="images/zero_memory.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2023-02-19-deepseed.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-02-19-deepseed.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-02-19-deepseed.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2023-02-19-deepseed.html" class="no-external">This is notes from the ZeRO - Memory Optimization paper</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-02-19-deepseed.html" class="no-external">
-<div class="listing-date">
-Feb 19, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-listing-date-sort="1676419200000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2440">
-<div class="thumbnail">
-<p><a href="./posts/2023-02-15-codex.html" class="no-external"></a></p><a href="./posts/2023-02-15-codex.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2023-02-15-codex.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-02-15-codex.html" class="no-external">Results</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-02-15-codex.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2023-02-15-codex.html" class="no-external">Here I am exploring the capabiliteis of Text to SQL of OpenAI codex vs fine-tuned t5-3b model (picard).</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-02-15-codex.html" class="no-external">
-<div class="listing-date">
-Feb 15, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-listing-date-sort="1675036800000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="20">
-<div class="thumbnail">
-<p><a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external"></a></p><a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external">5 The datasets library</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external">Repeating steps from https://huggingface.co/course/chapter3/4?fw=pt</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="no-external">
-<div class="listing-date">
-Jan 30, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-listing-date-sort="1674432000000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
-<div class="thumbnail">
-<p><a href="./posts/2023-01-23-huggingface-course.html" class="no-external"></a></p><a href="./posts/2023-01-23-huggingface-course.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2023-01-23-huggingface-course.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-01-23-huggingface-course.html" class="no-external">1. Transformer Models</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-01-23-huggingface-course.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2023-01-23-huggingface-course.html" class="no-external">In encoder models, attention layers can access all words in the input sequence. Pretraining involves corruping an input sequence and predicting the original sequence (say…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-01-23-huggingface-course.html" class="no-external">
-<div class="listing-date">
-Jan 23, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="14" data-listing-date-sort="1667260800000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/2022-11-01-text-from-invoices.html" class="no-external"></a></p><a href="./posts/2022-11-01-text-from-invoices.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2022-11-01-text-from-invoices.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2022-11-01-text-from-invoices.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2022-11-01-text-from-invoices.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2022-11-01-text-from-invoices.html" class="no-external">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im">from</span> transformers <span class="im">import</span> AutoModelForTokenClassification, AutoProcessor</span>
-<span id="cb1-2"><span class="im">from</span> datasets <span class="im">import</span> ClassLabel, Features, Sequence, Value, Array2D, Array3D, load_metric</span>
-<span id="cb1-3"><span class="im">import</span> torch</span>…<span id="cb1-4"><span class="im"></span><span class="im"></span></span><span id="cb1-5"><span class="im"></span><span class="im"></span></span><span id="cb1-6"><span class="im"></span><span class="im"></span></span></code></pre></div></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2022-11-01-text-from-invoices.html" class="no-external">
-<div class="listing-date">
-Nov 1, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="15" data-listing-date-sort="1666656000000" data-listing-file-modified-sort="1724302985563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="373">
-<div class="thumbnail">
-<p><a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external"></a></p><a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external">Transformers from scratch in pytorch</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external">Notes from https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial6/Transformers_and_MHAttention.html</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2022-10-25-transformers-from-scratch.html" class="no-external">
-<div class="listing-date">
-Oct 25, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="16" data-listing-date-sort="1656460800000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27">
-<div class="thumbnail">
-<p><a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external"></a></p><a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external">
-<p class="card-img-top"><img src="posts/2022-06-29-linear-algebra-notes_files/figure-html/cell-6-output-2.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external">Properties of Eigen Values and Vectors</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external">We initialize a random vector x, usually 1s. We multiply ax and divide the output to make the</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2022-06-29-linear-algebra-notes.html" class="no-external">
-<div class="listing-date">
-Jun 29, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="17" data-listing-date-sort="1656201600000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94">
-<div class="thumbnail">
-<p><a href="./posts/2022-06-26-quantile-plot.html" class="no-external"></a></p><a href="./posts/2022-06-26-quantile-plot.html" class="no-external">
-<p class="card-img-top"><img src="posts/2022-06-26-quantile-plot_files/figure-html/cell-6-output-3.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2022-06-26-quantile-plot.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2022-06-26-quantile-plot.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2022-06-26-quantile-plot.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2022-06-26-quantile-plot.html" class="no-external">We will try to understand a quantile plot.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2022-06-26-quantile-plot.html" class="no-external">
-<div class="listing-date">
-Jun 26, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="18" data-listing-date-sort="1652400000000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5">
-<div class="thumbnail">
-<p><a href="./posts/2022-05-13-timeseries-1.html" class="no-external"></a></p><a href="./posts/2022-05-13-timeseries-1.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2022-05-13-timeseries-1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2022-05-13-timeseries-1.html" class="no-external">Passenger dataset</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2022-05-13-timeseries-1.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2022-05-13-timeseries-1.html" class="no-external">can be downloaded from https://www.kaggle.com/datasets/chirag19/air-passengers</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2022-05-13-timeseries-1.html" class="no-external">
-<div class="listing-date">
-May 13, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="19" data-listing-date-sort="1646611200000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="310">
-<div class="thumbnail">
-<p><a href="./posts/2022-03-07-product-recomendation.html" class="no-external"></a></p><a href="./posts/2022-03-07-product-recomendation.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2022-03-07-product-recomendation.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2022-03-07-product-recomendation.html" class="no-external">Satender Product Recommendation</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2022-03-07-product-recomendation.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2022-03-07-product-recomendation.html" class="no-external">From SVD to Deep Learning</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2022-03-07-product-recomendation.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="20" data-listing-date-sort="1642291200000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external"></a></p><a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external">Movie Recommender using pytorch</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external">Simple implementation</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="no-external">
-<div class="listing-date">
-Jan 16, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="21" data-listing-date-sort="1641772800000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="113">
-<div class="thumbnail">
-<p><a href="./posts/2022-01-10-sklearn-2.html" class="no-external"></a></p><a href="./posts/2022-01-10-sklearn-2.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2022-01-10-sklearn-2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2022-01-10-sklearn-2.html" class="no-external">Sklearn - Adult Income Classificat</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2022-01-10-sklearn-2.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2022-01-10-sklearn-2.html" class="no-external">Basics</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2022-01-10-sklearn-2.html" class="no-external">
-<div class="listing-date">
-Jan 10, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="22" data-listing-date-sort="1641427200000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94">
-<div class="thumbnail">
-<p><a href="./posts/2022-01-06-linear-regression.html" class="no-external"></a></p><a href="./posts/2022-01-06-linear-regression.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2022-01-06-linear-regression.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2022-01-06-linear-regression.html" class="no-external">Linear Regression</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2022-01-06-linear-regression.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2022-01-06-linear-regression.html" class="no-external">Basics</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2022-01-06-linear-regression.html" class="no-external">
-<div class="listing-date">
-Jan 6, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="23" data-listing-date-sort="1640649600000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="432">
-<div class="thumbnail">
-<p><a href="./posts/2021-12-28-variational-inference.html" class="no-external"></a></p><a href="./posts/2021-12-28-variational-inference.html" class="no-external">
-<p class="card-img-top"><img src="posts/2021-12-28-variational-inference_files/figure-html/cell-8-output-2.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2021-12-28-variational-inference.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2021-12-28-variational-inference.html" class="no-external">Variational Inference</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2021-12-28-variational-inference.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2021-12-28-variational-inference.html" class="no-external">Under the hood</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2021-12-28-variational-inference.html" class="no-external">
-<div class="listing-date">
-Dec 28, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="24" data-listing-date-sort="1640217600000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="117">
-<div class="thumbnail">
-<p><a href="./posts/2021-12-23-la-column-spaces.html" class="no-external"></a></p><a href="./posts/2021-12-23-la-column-spaces.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2021-12-23-la-column-spaces.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2021-12-23-la-column-spaces.html" class="no-external">MIT 18.065 Linear Algebra, Lecture 1</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2021-12-23-la-column-spaces.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2021-12-23-la-column-spaces.html" class="no-external">Understanding column spaces</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2021-12-23-la-column-spaces.html" class="no-external">
-<div class="listing-date">
-Dec 23, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="25" data-categories="fastpages,jupyter" data-listing-date-sort="1638057600000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="41">
-<div class="thumbnail">
-<p><a href="./posts/2021-11-28-sklearn-intro.html" class="no-external"></a></p><a href="./posts/2021-11-28-sklearn-intro.html" class="no-external">
-<p class="card-img-top"><img data-src="posts/2021-11-28-sklearn-intro_files/figure-html/cell-5-output-2.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2021-11-28-sklearn-intro.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2021-11-28-sklearn-intro.html" class="no-external">sklearn intro</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2021-11-28-sklearn-intro.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('fastpages'); return false;">
-fastpages
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('jupyter'); return false;">
-jupyter
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2021-11-28-sklearn-intro.html" class="no-external">Classification, Clustering and Regression</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2021-11-28-sklearn-intro.html" class="no-external">
-<div class="listing-date">
-Nov 28, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="26" data-listing-date-sort="1637539200000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external"></a></p><a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external">
-<p class="card-img-top"><img data-src="posts/2021-11-22-01-the-machine-learning-landscape_files/figure-html/cell-6-output-2.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external">Hands - on ML. Chapter 1</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external">Classification, Clustering and Regression</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="no-external">
-<div class="listing-date">
-Nov 22, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="27" data-listing-date-sort="1636588800000" data-listing-file-modified-sort="1724302985559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="179">
-<div class="thumbnail">
-<p><a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external"></a></p><a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external">Fastai Linear Algebra - chapter 1</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external">Image background removal with SGD</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2021-11-11-linear-algebra-svd.html" class="no-external">
-<div class="listing-date">
-Nov 11, 2021
-</div>
-</a>
-</div>
-</div>
-</div>
+<tbody class="list">
+<tr data-index="0" data-listing-date-sort="1724112000000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="964" data-listing-title-sort="LLM Leaderboards and benchmarks" data-listing-filename-sort="2024-08-20-llm-leaderboards.md">
+<td>
+<span class="listing-date">Aug 20, 2024</span>
+</td>
+<td>
+<a href="./posts/2024-08-20-llm-leaderboards.html" class="title listing-title">LLM Leaderboards and benchmarks</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1724112000000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="326" data-listing-title-sort="Local LLM Inference on Mac Mini" data-listing-filename-sort="2024-08-20-ollama-remote-mac.qmd">
+<td>
+<span class="listing-date">Aug 20, 2024</span>
+</td>
+<td>
+<a href="./posts/2024-08-20-ollama-remote-mac.html" class="title listing-title">Local LLM Inference on Mac Mini</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="2" data-listing-date-sort="1723420800000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350" data-listing-title-sort="Paper Summary: COT Prompting Elicits Reasoning in Large Language Models" data-listing-filename-sort="2024-08-12-paper-llm-reasoning.md">
+<td>
+<span class="listing-date">Aug 12, 2024</span>
+</td>
+<td>
+<a href="./posts/2024-08-12-paper-llm-reasoning.html" class="title listing-title">Paper Summary: COT Prompting Elicits Reasoning in Large Language Models</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="3" data-listing-date-sort="1720915200000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="214" data-listing-title-sort="Finding Urban Locality data for India" data-listing-filename-sort="2024-07-14-india-urban-maps-ola.ipynb">
+<td>
+<span class="listing-date">Jul 14, 2024</span>
+</td>
+<td>
+<a href="./posts/2024-07-14-india-urban-maps-ola.html" class="title listing-title">Finding Urban Locality data for India</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="4" data-listing-date-sort="1719532800000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="183" data-listing-title-sort="Open Street Maps for Geocoding locally" data-listing-filename-sort="2024-06-28-openstreetmaps-geocoding.ipynb">
+<td>
+<span class="listing-date">Jun 28, 2024</span>
+</td>
+<td>
+<a href="./posts/2024-06-28-openstreetmaps-geocoding.html" class="title listing-title">Open Street Maps for Geocoding locally</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="5" data-listing-date-sort="1716768000000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="222" data-listing-title-sort="Object Detction Finetuning" data-listing-filename-sort="2024-07-01-object-detection-finetune.ipynb">
+<td>
+<span class="listing-date">May 27, 2024</span>
+</td>
+<td>
+<a href="./posts/2024-07-01-object-detection-finetune.html" class="title listing-title">Object Detction Finetuning</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="6" data-listing-date-sort="1716768000000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1308" data-listing-title-sort="Exploring Dspy - part 1" data-listing-filename-sort="2024-05-27-exploring-dspy-1.ipynb">
+<td>
+<span class="listing-date">May 27, 2024</span>
+</td>
+<td>
+<a href="./posts/2024-05-27-exploring-dspy-1.html" class="title listing-title">Exploring Dspy - part 1</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="7" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="187" data-listing-title-sort="Run Trilium server in google cloud run" data-listing-filename-sort="2024-05-04-trilium-glcoud.ipynb">
+<td>
+<span class="listing-date">May 4, 2024</span>
+</td>
+<td>
+<a href="./posts/2024-05-04-trilium-glcoud.html" class="title listing-title">Run Trilium server in google cloud run</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="8" data-listing-date-sort="1707696000000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="186" data-listing-title-sort="Run Qdrant in Google Cloud Run" data-listing-filename-sort="2024-02-12-qdrant-cloud-run.ipynb">
+<td>
+<span class="listing-date">Feb 12, 2024</span>
+</td>
+<td>
+<a href="./posts/2024-02-12-qdrant-cloud-run.html" class="title listing-title">Run Qdrant in Google Cloud Run</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="9" data-listing-date-sort="1681862400000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="413" data-listing-title-sort="Purpose" data-listing-filename-sort="2023-04-19-text2sql-resdsql.ipynb">
+<td>
+<span class="listing-date">Apr 19, 2023</span>
+</td>
+<td>
+<a href="./posts/2023-04-19-text2sql-resdsql.html" class="title listing-title">Purpose</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="10" data-listing-date-sort="1676764800000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="769" data-listing-filename-sort="2023-02-19-deepseed.ipynb">
+<td>
+<span class="listing-date">Feb 19, 2023</span>
+</td>
+<td>
+<a href="./posts/2023-02-19-deepseed.html" class="title listing-title">&nbsp;</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="11" data-listing-date-sort="1676419200000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2440" data-listing-title-sort="Results" data-listing-filename-sort="2023-02-15-codex.ipynb">
+<td>
+<span class="listing-date">Feb 15, 2023</span>
+</td>
+<td>
+<a href="./posts/2023-02-15-codex.html" class="title listing-title">Results</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="12" data-listing-date-sort="1675036800000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="20" data-listing-title-sort="5 The datasets library" data-listing-filename-sort="2023-01-30-finetune-nlp-pytorch.ipynb">
+<td>
+<span class="listing-date">Jan 30, 2023</span>
+</td>
+<td>
+<a href="./posts/2023-01-30-finetune-nlp-pytorch.html" class="title listing-title">5 The datasets library</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="13" data-listing-date-sort="1674432000000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350" data-listing-title-sort="1. Transformer Models" data-listing-filename-sort="2023-01-23-huggingface-course.ipynb">
+<td>
+<span class="listing-date">Jan 23, 2023</span>
+</td>
+<td>
+<a href="./posts/2023-01-23-huggingface-course.html" class="title listing-title">1. Transformer Models</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="14" data-listing-date-sort="1667260800000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-filename-sort="2022-11-01-text-from-invoices.ipynb">
+<td>
+<span class="listing-date">Nov 1, 2022</span>
+</td>
+<td>
+<a href="./posts/2022-11-01-text-from-invoices.html" class="title listing-title">&nbsp;</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="15" data-listing-date-sort="1666656000000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="373" data-listing-title-sort="Transformers from scratch in pytorch" data-listing-filename-sort="2022-10-25-transformers-from-scratch.ipynb">
+<td>
+<span class="listing-date">Oct 25, 2022</span>
+</td>
+<td>
+<a href="./posts/2022-10-25-transformers-from-scratch.html" class="title listing-title">Transformers from scratch in pytorch</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="16" data-listing-date-sort="1656460800000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27" data-listing-title-sort="Properties of Eigen Values and Vectors" data-listing-filename-sort="2022-06-29-linear-algebra-notes.ipynb">
+<td>
+<span class="listing-date">Jun 29, 2022</span>
+</td>
+<td>
+<a href="./posts/2022-06-29-linear-algebra-notes.html" class="title listing-title">Properties of Eigen Values and Vectors</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="17" data-listing-date-sort="1656201600000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94" data-listing-filename-sort="2022-06-26-quantile-plot.ipynb">
+<td>
+<span class="listing-date">Jun 26, 2022</span>
+</td>
+<td>
+<a href="./posts/2022-06-26-quantile-plot.html" class="title listing-title">&nbsp;</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="18" data-listing-date-sort="1652400000000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5" data-listing-title-sort="Passenger dataset" data-listing-filename-sort="2022-05-13-timeseries-1.ipynb">
+<td>
+<span class="listing-date">May 13, 2022</span>
+</td>
+<td>
+<a href="./posts/2022-05-13-timeseries-1.html" class="title listing-title">Passenger dataset</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="19" data-listing-date-sort="1646611200000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="310" data-listing-title-sort="Satender Product Recommendation" data-listing-filename-sort="2022-03-07-product-recomendation.ipynb">
+<td>
+<span class="listing-date">Mar 7, 2022</span>
+</td>
+<td>
+<a href="./posts/2022-03-07-product-recomendation.html" class="title listing-title">Satender Product Recommendation</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="20" data-listing-date-sort="1642291200000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Movie Recommender using pytorch" data-listing-filename-sort="2022-01-16-movie-recommender-pytorch.ipynb">
+<td>
+<span class="listing-date">Jan 16, 2022</span>
+</td>
+<td>
+<a href="./posts/2022-01-16-movie-recommender-pytorch.html" class="title listing-title">Movie Recommender using pytorch</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="21" data-listing-date-sort="1641772800000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="113" data-listing-title-sort="Sklearn - Adult Income Classificat" data-listing-filename-sort="2022-01-10-sklearn-2.ipynb">
+<td>
+<span class="listing-date">Jan 10, 2022</span>
+</td>
+<td>
+<a href="./posts/2022-01-10-sklearn-2.html" class="title listing-title">Sklearn - Adult Income Classificat</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="22" data-listing-date-sort="1641427200000" data-listing-file-modified-sort="1724303484066" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94" data-listing-title-sort="Linear Regression" data-listing-filename-sort="2022-01-06-linear-regression.ipynb">
+<td>
+<span class="listing-date">Jan 6, 2022</span>
+</td>
+<td>
+<a href="./posts/2022-01-06-linear-regression.html" class="title listing-title">Linear Regression</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="23" data-listing-date-sort="1640649600000" data-listing-file-modified-sort="1724303484062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="432" data-listing-title-sort="Variational Inference" data-listing-filename-sort="2021-12-28-variational-inference.ipynb">
+<td>
+<span class="listing-date">Dec 28, 2021</span>
+</td>
+<td>
+<a href="./posts/2021-12-28-variational-inference.html" class="title listing-title">Variational Inference</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="24" data-listing-date-sort="1640217600000" data-listing-file-modified-sort="1724303484062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="117" data-listing-title-sort="MIT 18.065 Linear Algebra, Lecture 1" data-listing-filename-sort="2021-12-23-LA-column-spaces.ipynb">
+<td>
+<span class="listing-date">Dec 23, 2021</span>
+</td>
+<td>
+<a href="./posts/2021-12-23-la-column-spaces.html" class="title listing-title">MIT 18.065 Linear Algebra, Lecture 1</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="25" data-categories="fastpages,jupyter" data-listing-date-sort="1638057600000" data-listing-file-modified-sort="1724303484062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="41" data-listing-title-sort="sklearn intro" data-listing-filename-sort="2021-11-28-sklearn-intro.ipynb">
+<td>
+<span class="listing-date">Nov 28, 2021</span>
+</td>
+<td>
+<a href="./posts/2021-11-28-sklearn-intro.html" class="title listing-title">sklearn intro</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="26" data-listing-date-sort="1637539200000" data-listing-file-modified-sort="1724303484062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="2" data-listing-title-sort="Hands - on ML. Chapter 1" data-listing-filename-sort="2021-11-22-01-the-machine-learning-landscape.ipynb">
+<td>
+<span class="listing-date">Nov 22, 2021</span>
+</td>
+<td>
+<a href="./posts/2021-11-22-01-the-machine-learning-landscape.html" class="title listing-title">Hands - on ML. Chapter 1</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+<tr data-index="27" data-listing-date-sort="1636588800000" data-listing-file-modified-sort="1724303484062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="179" data-listing-title-sort="Fastai Linear Algebra - chapter 1" data-listing-filename-sort="2021-11-11-linear-algebra-svd.ipynb">
+<td>
+<span class="listing-date">Nov 11, 2021</span>
+</td>
+<td>
+<a href="./posts/2021-11-11-linear-algebra-svd.html" class="title listing-title">Fastai Linear Algebra - chapter 1</a>
+</td>
+<td>
+<span class="listing-author">&nbsp;</span>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
