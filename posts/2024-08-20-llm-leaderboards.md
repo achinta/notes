@@ -1,7 +1,10 @@
 ---
 title: "LLM Leaderboards and benchmarks"
+description: "Important leaderboards I came across"
 format: html
 date: 2024-08-20
+categories: 
+    - LLMs
 ---
 
 ### LLM Leaderboards
