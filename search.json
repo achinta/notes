@@ -193,14 +193,14 @@
     "href": "posts/2024-08-22-mermaid-js-in-github-pages.html",
     "title": "Enabling Mermaid JS in Github Pages",
     "section": "",
-    "text": "Test mermaid\nflowchart LR\n    Start --&gt; Stop\n\n\nflowchart LR\n    A((A)) --&gt;|7| B((B))\n    A --&gt;|2| C((C))\n    B --&gt;|3| A\n    B --&gt;|5| C\n    C --&gt;|1| A\n    C --&gt;|3| B\n\n\n\nhttps://stackoverflow.com/questions/53883747/how-to-make-github-pages-markdown-support-mermaid-diagram\nhttps://rabestro.github.io/test-mermaid/"
+    "text": "Test mermaid\n\n\n\n\n\nflowchart LR\n    Start --&gt; Stop\n\n\n\n\n\n\n\n\n\n\n\n\n\nflowchart LR\n    A((A)) --&gt;|7| B((B))\n    A --&gt;|2| C((C))\n    B --&gt;|3| A\n    B --&gt;|5| C\n    C --&gt;|1| A\n    C --&gt;|3| B\n\n\n\n\n\n\n\n\n\nhttps://stackoverflow.com/questions/53883747/how-to-make-github-pages-markdown-support-mermaid-diagram\nhttps://rabestro.github.io/test-mermaid/"
   },
   {
     "objectID": "posts/2024-08-22-mermaid-js-in-github-pages.html#simple-graph",
     "href": "posts/2024-08-22-mermaid-js-in-github-pages.html#simple-graph",
     "title": "Enabling Mermaid JS in Github Pages",
     "section": "",
-    "text": "flowchart LR\n    A((A)) --&gt;|7| B((B))\n    A --&gt;|2| C((C))\n    B --&gt;|3| A\n    B --&gt;|5| C\n    C --&gt;|1| A\n    C --&gt;|3| B\n\n\n\nhttps://stackoverflow.com/questions/53883747/how-to-make-github-pages-markdown-support-mermaid-diagram\nhttps://rabestro.github.io/test-mermaid/"
+    "text": "flowchart LR\n    A((A)) --&gt;|7| B((B))\n    A --&gt;|2| C((C))\n    B --&gt;|3| A\n    B --&gt;|5| C\n    C --&gt;|1| A\n    C --&gt;|3| B\n\n\n\n\n\n\n\n\n\nhttps://stackoverflow.com/questions/53883747/how-to-make-github-pages-markdown-support-mermaid-diagram\nhttps://rabestro.github.io/test-mermaid/"
   },
   {
     "objectID": "posts/2023-02-19-deepseed.html",
