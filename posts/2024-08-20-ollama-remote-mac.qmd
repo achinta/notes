@@ -30,10 +30,10 @@ OLLAMA_HOST can be added to the .bashrc or .zshrc to avoid setting it each time.
 #### On Localhost
 
 ###### 1. Check that Ollama service is accessible 
-Using a browser, go to http://mini:11434/. It should show the message "Ollama is running"
+Using a browser, go to <http://mini:11434>. It should show the message "Ollama is running"
 
 ###### 2. Run the Web UI for Ollama
-We can use https://github.com/open-webui/open-webui as UI for Ollama
+We can use <https://github.com/open-webui/open-webui> as UI for Ollama
 ```{.zsh}
 docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \
     --restart always ghcr.io/open-webui/open-webui:main
