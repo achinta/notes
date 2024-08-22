@@ -3,12 +3,11 @@ title: "Ajay's notes"
 listing:
   contents: posts
   sort: "date desc"
-  type: table
+  type: default
   categories: true
   sort-ui: false
   filter-ui: false
+  fields : [date, title, description, reading-time]
 page-layout: full
 title-block-banner: true
 ---
-
-
