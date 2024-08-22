@@ -7,17 +7,18 @@ format:
 date: 2024-08-22
 ---
 
+
 # test-mermaid
 Test mermaid
 
-```mermaid
+```{mermaid}
 flowchart LR
     Start --> Stop
 ```
 
 ## Simple Graph
 
-```mermaid
+```{mermaid}
 flowchart LR
     A((A)) -->|7| B((B))
     A -->|2| C((C))
