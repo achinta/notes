@@ -15,6 +15,8 @@ categories:
 | [AlpacaEval Leaderboard](https://tatsu-lab.github.io/alpaca_eval/)                         |                                                                                                                             |
 | [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)   |                                                                                                                             |
 | [Berkeley Function-Calling Leaderboard](https://gorilla.cs.berkeley.edu/leaderboard.html)  |                                                                                                                             |
+| [EvalPlus - coding](https://evalplus.github.io/leaderboard.html)  |                                                                                                                             |
+
 
 
 ### Embedding Leaderboard
