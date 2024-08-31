@@ -224,11 +224,18 @@
     "text": "Ollama\n\nInstall and start Ollama\nDo these steps on the remote server\n# Install Ollama on the remote server\nbrew install ollama --cask\n\n# Set OLLAMA_HOST, so that the server can be accessible remotely \nexport OLLAMA_HOST='0.0.0.0'\n\n# Start Ollama\nollama serve\nOLLAMA_HOST can be added to the .bashrc or .zshrc to avoid setting it each time.\n\n\nOn Localhost\n\n1. Check that Ollama service is accessible\nUsing a browser, go to http://mini:11434. It should show the message “Ollama is running”\n\n\n2. Run the Web UI for Ollama\nWe can use https://github.com/open-webui/open-webui as UI for Ollama\ndocker run -d -p 3000:8080 -e OLLAMA_BASE_URL=http://mini:11434 -v open-webui:/app/backend/data --name open-webui \\\n    --restart always ghcr.io/open-webui/open-webui:main\nThe web UI can be accessible at http://localhost:3000\n\n\n\nTips\nSome tips and rants for running ollama - https://www.reddit.com/r/LocalLLaMA/comments/1e9hju5/ollama_site_pro_tips_i_wish_my_idiot_self_had/"
   },
   {
-    "objectID": "posts/2024-08-20-ollama-remote-mac.html#llama.cpp-compatible-with-openai",
-    "href": "posts/2024-08-20-ollama-remote-mac.html#llama.cpp-compatible-with-openai",
+    "objectID": "posts/2024-08-20-ollama-remote-mac.html#llama.cpp-with-python",
+    "href": "posts/2024-08-20-ollama-remote-mac.html#llama.cpp-with-python",
     "title": "Local LLM Inference on Mac Mini",
-    "section": "Llama.cpp (Compatible with OpenAI)",
-    "text": "Llama.cpp (Compatible with OpenAI)\nInstall and run llama.cpp server\n# install llama-cpp-python server with Metal \nCMAKE_ARGS=\"-DGGML_METAL=on\" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'\n\n# start the llama.cpp server with a single model\npython3 -m llama_cpp.server --hf_model_repo_id bartowski/Meta-Llama-3.1-8B-Instruct-GGUF --model '*Q6_K_L.gguf' --chat_format llama-3 --host 0.0.0.0\nUse completion api.\n\nPythonShell\n\n\nimport openai\n\nclient = openai.OpenAI(\n    base_url = \"http://mini:8000/v1/\",\n    api_key='dummy'\n)\n\nmessages = [{\"role\": \"user\", \"content\": \"Tell me a joke\"}]\nchat_completion = client.chat.completions.create(messages=messages, model=\"dummy\")\n\nresponse_txt = chat_completion.choices[0].message.content\nprint(response_txt)\n\n\n# call chat completion to test\ncurl -s http://mini:8000/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n   \"messages\": [\n      {\"role\": \"user\", \"content\": \"Tell me a joke\"}\n   ]\n }' | jq .\n\n\n\nNote that the api_key and model are set to be ‘dummy’. They can be any value, as they are not used.\nFrom the server logs, we can see that eval time tokens per second is 8.81."
+    "section": "Llama.cpp with python",
+    "text": "Llama.cpp with python\nInstall and run llama.cpp server\n# install llama-cpp-python server with Metal \nCMAKE_ARGS=\"-DGGML_METAL=on\" FORCE_CMAKE=1 pip install --force-reinstall --no-cache-dir 'llama-cpp-python[server]'\n\n# start the llama.cpp server with a single model\npython3 -m llama_cpp.server --hf_model_repo_id bartowski/Meta-Llama-3.1-8B-Instruct-GGUF --model '*Q6_K_L.gguf' --chat_format llama-3 --host 0.0.0.0\nUse completion api.\n\nPythonShell\n\n\nimport openai\n\nclient = openai.OpenAI(\n    base_url = \"http://mini:8000/v1/\",\n    api_key='dummy'\n)\n\nmessages = [{\"role\": \"user\", \"content\": \"Tell me a joke\"}]\nchat_completion = client.chat.completions.create(messages=messages, model=\"dummy\")\n\nresponse_txt = chat_completion.choices[0].message.content\nprint(response_txt)\n\n\n# call chat completion to test\ncurl -s http://mini:8000/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n   \"messages\": [\n      {\"role\": \"user\", \"content\": \"Tell me a joke\"}\n   ]\n }' | jq .\n\n\n\nNote that the api_key and model are set to be ‘dummy’. They can be any value, as they are not used.\nFrom the server logs, we can see that eval time tokens per second is 8.81."
+  },
+  {
+    "objectID": "posts/2024-08-20-ollama-remote-mac.html#llama.cpp",
+    "href": "posts/2024-08-20-ollama-remote-mac.html#llama.cpp",
+    "title": "Local LLM Inference on Mac Mini",
+    "section": "llama.cpp",
+    "text": "llama.cpp\nLets run quantized CodeQwen1.5 for code completion using llama.cpp\nllama-server --host 0.0.0.0 --mlock --hf-repo bartowski/CodeQwen1.5-7B-GGUF --hf-file CodeQwen1.5-7B-Q5_K_M.gguf -c 4096"
   },
   {
     "objectID": "posts/2022-01-10-sklearn-2.html",
