@@ -92,6 +92,6 @@ From the server logs, we can see that eval time tokens per second is 8.81.
 ## llama.cpp
 Lets run quantized `CodeQwen1.5` for code completion using llama.cpp
 
-```(.zsh)
+```{.zsh}
 llama-server --host 0.0.0.0 --mlock --hf-repo bartowski/CodeQwen1.5-7B-GGUF --hf-file CodeQwen1.5-7B-Q5_K_M.gguf -c 4096
 ```
