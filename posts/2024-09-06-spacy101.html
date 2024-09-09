@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Notes from <a href="https://spacy.io/usage/spacy-101" class="uri">https://spacy.io/usage/spacy-101</a></p>
-<div id="cell-2" class="cell" data-execution_count="2">
+<div id="cell-2" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install spacy tabulate</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> spacy</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spacy <span class="im">import</span> displacy</span>
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[Apple, is, looking, at, buying, a, UK, startup, for, $, 1, billion]</code></pre>
 </div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="12">
+<div id="cell-3" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display entities</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>displacy.render(doc, style<span class="op">=</span><span class="st">"ent"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -219,11 +219,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div></span>
 </div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="14">
+<div id="cell-4" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show dependencies</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>displacy.render(doc, style<span class="op">=</span><span class="st">"dep"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<span class="tex2jax_ignore"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" lang="en" id="863384389e9740dcb2f0180ebd0e9b78-0" class="displacy" width="2150" height="399.5" direction="ltr" style="max-width: none; height: 399.5px; color: #000000; background: #ffffff; font-family: Arial; direction: ltr">
+<span class="tex2jax_ignore"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" lang="en" id="566cb248de7141a2bd5f3c65504fd6f4-0" class="displacy" width="2150" height="399.5" direction="ltr" style="max-width: none; height: 399.5px; color: #000000; background: #ffffff; font-family: Arial; direction: ltr">
 <text class="displacy-token" fill="currentColor" text-anchor="middle" y="309.5">
     <tspan class="displacy-word" fill="currentColor" x="50">Apple</tspan>
     <tspan class="displacy-tag" dy="2em" fill="currentColor" x="50">PROPN</tspan>
@@ -285,96 +285,96 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </text>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-0" stroke-width="2px" d="M70,264.5 C70,89.5 395.0,89.5 395.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-0" stroke-width="2px" d="M70,264.5 C70,89.5 395.0,89.5 395.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-0" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">nsubj</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-0" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">nsubj</textpath>
     </text>
     <path class="displacy-arrowhead" d="M70,266.5 L62,254.5 78,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-1" stroke-width="2px" d="M245,264.5 C245,177.0 390.0,177.0 390.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-1" stroke-width="2px" d="M245,264.5 C245,177.0 390.0,177.0 390.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-1" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-1" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">aux</textpath>
     </text>
     <path class="displacy-arrowhead" d="M245,266.5 L237,254.5 253,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-2" stroke-width="2px" d="M420,264.5 C420,177.0 565.0,177.0 565.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-2" stroke-width="2px" d="M420,264.5 C420,177.0 565.0,177.0 565.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-2" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-2" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textpath>
     </text>
     <path class="displacy-arrowhead" d="M565.0,266.5 L573.0,254.5 557.0,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-3" stroke-width="2px" d="M595,264.5 C595,177.0 740.0,177.0 740.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-3" stroke-width="2px" d="M595,264.5 C595,177.0 740.0,177.0 740.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-3" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">pcomp</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-3" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">pcomp</textpath>
     </text>
     <path class="displacy-arrowhead" d="M740.0,266.5 L748.0,254.5 732.0,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-4" stroke-width="2px" d="M945,264.5 C945,89.5 1270.0,89.5 1270.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-4" stroke-width="2px" d="M945,264.5 C945,89.5 1270.0,89.5 1270.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-4" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-4" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">det</textpath>
     </text>
     <path class="displacy-arrowhead" d="M945,266.5 L937,254.5 953,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-5" stroke-width="2px" d="M1120,264.5 C1120,177.0 1265.0,177.0 1265.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-5" stroke-width="2px" d="M1120,264.5 C1120,177.0 1265.0,177.0 1265.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-5" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-5" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textpath>
     </text>
     <path class="displacy-arrowhead" d="M1120,266.5 L1112,254.5 1128,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-6" stroke-width="2px" d="M770,264.5 C770,2.0 1275.0,2.0 1275.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-6" stroke-width="2px" d="M770,264.5 C770,2.0 1275.0,2.0 1275.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-6" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">dobj</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-6" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">dobj</textpath>
     </text>
     <path class="displacy-arrowhead" d="M1275.0,266.5 L1283.0,254.5 1267.0,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-7" stroke-width="2px" d="M1295,264.5 C1295,177.0 1440.0,177.0 1440.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-7" stroke-width="2px" d="M1295,264.5 C1295,177.0 1440.0,177.0 1440.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-7" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-7" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">prep</textpath>
     </text>
     <path class="displacy-arrowhead" d="M1440.0,266.5 L1448.0,254.5 1432.0,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-8" stroke-width="2px" d="M1645,264.5 C1645,89.5 1970.0,89.5 1970.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-8" stroke-width="2px" d="M1645,264.5 C1645,89.5 1970.0,89.5 1970.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-8" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">quantmod</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-8" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">quantmod</textpath>
     </text>
     <path class="displacy-arrowhead" d="M1645,266.5 L1637,254.5 1653,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-9" stroke-width="2px" d="M1820,264.5 C1820,177.0 1965.0,177.0 1965.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-9" stroke-width="2px" d="M1820,264.5 C1820,177.0 1965.0,177.0 1965.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-9" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-9" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">compound</textpath>
     </text>
     <path class="displacy-arrowhead" d="M1820,266.5 L1812,254.5 1828,254.5" fill="currentColor"></path>
 </g>
 
 <g class="displacy-arrow">
-    <path class="displacy-arc" id="arrow-863384389e9740dcb2f0180ebd0e9b78-0-10" stroke-width="2px" d="M1470,264.5 C1470,2.0 1975.0,2.0 1975.0,264.5" fill="none" stroke="currentColor"></path>
+    <path class="displacy-arc" id="arrow-566cb248de7141a2bd5f3c65504fd6f4-0-10" stroke-width="2px" d="M1470,264.5 C1470,2.0 1975.0,2.0 1975.0,264.5" fill="none" stroke="currentColor"></path>
     <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
-        <textpath href="#arrow-863384389e9740dcb2f0180ebd0e9b78-0-10" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textpath>
+        <textpath href="#arrow-566cb248de7141a2bd5f3c65504fd6f4-0-10" class="displacy-label" startoffset="50%" side="left" fill="currentColor" text-anchor="middle">pobj</textpath>
     </text>
     <path class="displacy-arrowhead" d="M1975.0,266.5 L1983.0,254.5 1967.0,254.5" fill="currentColor"></path>
 </g>
 </svg></span>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="13">
+<div id="cell-5" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> [<span class="st">"text"</span>, <span class="st">"lemma"</span>, <span class="st">"pos"</span>, <span class="st">"tag"</span>, <span class="st">"dep"</span>, <span class="st">"shape"</span>, <span class="st">"is_alpha"</span>, <span class="st">"is_stop"</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [[token.text, token.lemma_, token.pos_, token.tag_, token.dep_,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            token.shape_, token.is_alpha, token.is_stop] <span class="cf">for</span> token <span class="kw">in</span> doc]</span>
@@ -412,7 +412,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="named-entities" class="level3">
 <h3 class="anchored" data-anchor-id="named-entities">Named Entities</h3>
-<div id="cell-7" class="cell" data-execution_count="16">
+<div id="cell-7" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> [<span class="st">"text"</span>, <span class="st">"start"</span>, <span class="st">"end"</span>, <span class="st">"label"</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [[ent.text, ent.start, ent.end, ent.label_] <span class="cf">for</span> ent <span class="kw">in</span> doc.ents]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tabulate(data, headers<span class="op">=</span>headers, tablefmt<span class="op">=</span><span class="st">"grid"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -432,37 +432,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- ### Architecture -->
 <!-- <img src="https://spacy.io/images/architecture.svg" alt="Spacy Pipeline" width="50%"> -->
 </section>
-<section id="custom-pipeline-for-ner" class="level3">
-<h3 class="anchored" data-anchor-id="custom-pipeline-for-ner">Custom pipeline for NER</h3>
-<p>Lets create a custom component for NER to detect movies in a text.</p>
-<div id="cell-10" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># custom pipeline for NER</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spacy.matcher <span class="im">import</span> PhraseMatcher</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spacy.tokenizer <span class="im">import</span> Tokenizer</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>nlp <span class="op">=</span> spacy.load(<span class="st">"en_core_web_sm"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>bond_movies <span class="op">=</span> [<span class="st">"Casino Royale"</span>, <span class="st">"Quantum of Solace"</span>, <span class="st">"Skyfall"</span>, <span class="st">"Spectre"</span>, <span class="st">"No Time To Die"</span>]</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>movie_matcher <span class="op">=</span> PhraseMatcher(nlp.vocab)</span>
+<section id="custom-matcher-for-ner" class="level3">
+<h3 class="anchored" data-anchor-id="custom-matcher-for-ner">Custom matcher for NER</h3>
+<p>Lets create a custom matcher to identify which franchise a movie belongs to.</p>
+<div id="cell-10" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spacy.matcher <span class="im">import</span> PhraseMatcher</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spacy.tokenizer <span class="im">import</span> Tokenizer</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>nlp <span class="op">=</span> spacy.load(<span class="st">"en_core_web_sm"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>bond_movies <span class="op">=</span> [<span class="st">"Casino Royale"</span>, <span class="st">"Quantum of Solace"</span>, <span class="st">"Skyfall"</span>, <span class="st">"Spectre"</span>, <span class="st">"No Time To Die"</span>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>star_wars_movies <span class="op">=</span> [<span class="st">"The Phantom Menace"</span>, <span class="st">"Attack of the Clones"</span>, <span class="st">"Revenge of the Sith"</span>, <span class="st">"A New Hope"</span>, </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"The Force Awakens"</span>, <span class="st">"The Last Jedi"</span>, <span class="st">"The Rise of Skywalker"</span>]</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>movie_patterns <span class="op">=</span> [nlp(movie) <span class="cf">for</span> movie <span class="kw">in</span> bond_movies]</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># using a pipe is faster</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>movie_patterns_2 <span class="op">=</span> nlp.tokenizer.pipe(bond_movies)</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>movie_matcher.add(<span class="st">"Bond"</span>, movie_patterns)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># process a text</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"I wached No Time To Die last night in India. Great movie!"</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>doc <span class="op">=</span> nlp(text)</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co"># perform ner on the text. Also print the type of entity</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> match_id, start, end <span class="kw">in</span> movie_matcher(doc):</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    span <span class="op">=</span> doc[start:end]</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(span.text)</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create PhraseMatcher and add patterns</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>matcher <span class="op">=</span> PhraseMatcher(nlp.vocab)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>bond_patterns <span class="op">=</span> [nlp.make_doc(text) <span class="cf">for</span> text <span class="kw">in</span> bond_movies]</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>star_wars_patterns <span class="op">=</span> [nlp.make_doc(text) <span class="cf">for</span> text <span class="kw">in</span> star_wars_movies]</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>matcher.add(<span class="st">"BOND_MOVIE"</span>, bond_patterns)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>matcher.add(<span class="st">"STAR_WARS_MOVIE"</span>, star_wars_patterns)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Process texts</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> [<span class="st">"I watched No Time To Die last night in India. Great movie!"</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>         <span class="st">"The Last Jedi is an American movie. I watched it in 2019."</span>]</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> text <span class="kw">in</span> texts:</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    doc <span class="op">=</span> nlp(text)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    matches <span class="op">=</span> matcher(doc)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> match_id, start, end <span class="kw">in</span> matches:</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        span <span class="op">=</span> doc[start:end]</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Entity: '</span><span class="sc">{</span>span<span class="sc">.</span>text<span class="sc">}</span><span class="ss">'</span><span class="ch">\t</span><span class="ss"> Label: '</span><span class="sc">{</span>nlp<span class="sc">.</span>vocab<span class="sc">.</span>strings[match_id]<span class="sc">}</span><span class="ss">'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>No Time To Die</code></pre>
+<pre><code>Entity: 'No Time To Die'     Label: 'BOND_MOVIE'
+Entity: 'The Last Jedi'  Label: 'STAR_WARS_MOVIE'</code></pre>
 </div>
 </div>
 
